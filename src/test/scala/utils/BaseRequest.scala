@@ -18,7 +18,6 @@ package utils
 
 import client.WsClient
 import play.api.libs.json.Json
-import utils.environment.Config
 
 trait BaseRequests extends BaseUris {
 
