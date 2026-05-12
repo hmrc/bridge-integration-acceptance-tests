@@ -36,9 +36,9 @@ class DashboardFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with
   Feature("Dashboard API Test") {
 
     Scenario("Retrieve a Ratepayer Status Response") { context =>
-      val personForeignId = "123456789567"
+      val personForeignId                           = "123456789567"
       When(s"the get request is sent to the dashboard api with $personForeignId")
-      getDashboard(context,personForeignId)
+      getDashboard(context, personForeignId)
       Then("the response should contain the following details")
       val expectedResponse: RatepayerStatusResponse = RatepayerStatusResponse(
         activeRatepayerPersonExists = true,

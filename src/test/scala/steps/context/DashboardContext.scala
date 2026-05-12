@@ -19,7 +19,7 @@ package steps.context
 import models.RatepayerStatusResponse
 
 final case class DashboardContext(
-                                   var responseBody: Option[RatepayerStatusResponse] = None,
-                                   var status: Int = 0,
-                                   var headers: Map[String, String] = Map.empty
-                                 )
+  var responseBody: Option[RatepayerStatusResponse] = None,
+  var status: Int = 0,
+  var headers: Map[String, String] = Map.empty
+)

@@ -23,25 +23,25 @@ import utils.environment.Config
 trait BaseRequests extends BaseUris {
 
   def createBearerToken(
-                         credId: String
-                       ): String = {
+    credId: String
+  ): String = {
 
     def createLocalBearerToken(credId: String) = {
       val json =
         Json.obj(
-        "credId"             -> credId,
-        "excludeGnapToken"   -> true,
-        "affinityGroup"      -> "Individual",
-        "confidenceLevel"    -> 250,
-        "credentialStrength" -> "strong",
-        "enrolments"         -> Json.arr(),
-        "nino"               -> "AA000003D",
-        "itmpData" -> Json.obj(
-          "givenName"  -> "Performance Test User",
-          "familyName" -> "Performance Test User",
-          "birthdate"  -> "1948-04-23"
+          "credId"             -> credId,
+          "excludeGnapToken"   -> true,
+          "affinityGroup"      -> "Individual",
+          "confidenceLevel"    -> 250,
+          "credentialStrength" -> "strong",
+          "enrolments"         -> Json.arr(),
+          "nino"               -> "AA000003D",
+          "itmpData"           -> Json.obj(
+            "givenName"  -> "Performance Test User",
+            "familyName" -> "Performance Test User",
+            "birthdate"  -> "1948-04-23"
+          )
         )
-      )
 
       val response                                     = WsClient.post(s"$authLoginApiUri/session/login", Map("Content-Type" -> "application/json"), json)
       val authHeader: (String, collection.Seq[String]) =

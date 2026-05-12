@@ -28,9 +28,9 @@ object Configuration {
   lazy val environment: Environment.Name = {
     val environmentProperty = Option(System.getProperty("env")).get
     environmentProperty match {
-      case "local" => Environment.Local
-      case "staging"   => Environment.Staging
-      case _ =>
+      case "local"   => Environment.Local
+      case "staging" => Environment.Staging
+      case _         =>
         throw new IllegalArgumentException(
           s"Environment '$environmentProperty' not known. Valid values are: local, ppe, ci1, qa"
         )

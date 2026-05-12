@@ -16,7 +16,7 @@
 
 package utils
 
-import uk.gov.hmrc.api.conf.{TestConfiguration, TestEnvironment}
+import uk.gov.hmrc.api.conf.TestEnvironment
 
 trait BaseUris {
 
@@ -38,4 +38,3 @@ trait BaseUris {
     TestEnvironment.url("api-subscription-fields")
 
 }
-

@@ -27,9 +27,9 @@ import play.api.libs.ws.JsonBodyReadables.readableAsJson
 trait DashboardStepHelper { this: Matchers =>
 
   def getDashboard(
-                                                                   context: DashboardContext,
-                                                                   credId: String
-                                                                 ): Unit = {
+    context: DashboardContext,
+    credId: String
+  ): Unit = {
     val response: StandaloneWSResponse = DashboardRequestBuilder.getDashboardData(credId)
 
     val jsonResponseBody = response.body[JsValue]
@@ -39,12 +39,12 @@ trait DashboardStepHelper { this: Matchers =>
   }
 
   def theResponseShouldContainTheFollowingDetails(
-                                                   context: DashboardContext,
-                                                   expectedResponse: RatepayerStatusResponse
-                                                 ): Unit = {
+    context: DashboardContext,
+    expectedResponse: RatepayerStatusResponse
+  ): Unit = {
     val actualResponseBody: Option[RatepayerStatusResponse] = context.responseBody
-    
-    context.status shouldBe 200
+
+    context.status     shouldBe 200
     actualResponseBody shouldBe Some(expectedResponse)
   }
 

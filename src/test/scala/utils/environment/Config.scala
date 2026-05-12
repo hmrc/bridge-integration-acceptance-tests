@@ -22,7 +22,7 @@ object Config {
 
   val env: String = Configuration.environment.toString.toLowerCase
 
-  val conf = ConfigFactory.load()
+  val conf    = ConfigFactory.load()
   def apply() = conf.getConfig(env)
 
 }

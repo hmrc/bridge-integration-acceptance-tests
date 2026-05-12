@@ -20,16 +20,16 @@ import client.WsClient
 import play.api.libs.ws.StandaloneWSResponse
 import utils.BaseRequests
 
-object DashboardRequestBuilder extends BaseRequests{
+object DashboardRequestBuilder extends BaseRequests {
 
   def getDashboardData(credId: String): StandaloneWSResponse = {
     val bearerToken = createBearerToken(credId = credId)
-    val baseUri = s"$bridgeIntegrationUrl/dashboard/$credId"
+    val baseUri     = s"$bridgeIntegrationUrl/dashboard/$credId"
     println(s"service level bearer token *********************************$bearerToken")
-    val headers = Map(
+    val headers     = Map(
       "Authorization" -> s"Bearer $bearerToken",
-      "Content-Type" -> "application/json",
-      "Accept" -> "application/vnd.hmrc.1.0+json"
+      "Content-Type"  -> "application/json",
+      "Accept"        -> "application/vnd.hmrc.1.0+json"
     )
     WsClient.get(baseUri, headers = headers)
   }

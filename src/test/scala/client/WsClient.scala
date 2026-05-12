@@ -38,12 +38,12 @@ object WsClient extends LazyLogging {
   }
 
   def get(
-           uri: String,
-           queryParameters: Map[String, String] = Map.empty[String, String],
-           headers: Map[String, String] = Map.empty[String, String],
-           cookies: Seq[WSCookie] = Seq.empty[WSCookie],
-           followRedirects: Boolean = false
-         ): StandaloneWSResponse = {
+    uri: String,
+    queryParameters: Map[String, String] = Map.empty[String, String],
+    headers: Map[String, String] = Map.empty[String, String],
+    cookies: Seq[WSCookie] = Seq.empty[WSCookie],
+    followRedirects: Boolean = false
+  ): StandaloneWSResponse = {
     println("")
     logger.debug("*********** NEW REQUEST ***********")
     logger.debug(s"GET request URI: $uri")
@@ -146,4 +146,3 @@ object WsClient extends LazyLogging {
     response
   }
 }
-

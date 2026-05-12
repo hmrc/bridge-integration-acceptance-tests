@@ -19,10 +19,10 @@ package models
 import play.api.libs.json.{Json, OFormat}
 
 case class RatepayerStatusResponse(
-                                    activeRatepayerPersonExists: Boolean,
-                                    activeRatepayerPersonaExists: Boolean,
-                                    activePropertyLinkCount: Int
-                                  )
+  activeRatepayerPersonExists: Boolean,
+  activeRatepayerPersonaExists: Boolean,
+  activePropertyLinkCount: Int
+)
 
 object RatepayerStatusResponse:
   implicit val format: OFormat[RatepayerStatusResponse] = Json.format
