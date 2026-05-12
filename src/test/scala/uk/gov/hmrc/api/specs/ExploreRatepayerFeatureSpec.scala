@@ -41,11 +41,11 @@ class ExploreRatepayerFeatureSpec
 
     Scenario("Retrieve a Ratepayer Status Response") { context =>
       val personForeignId           = "123456789567"
-      When(s"the get request is sent to the dashboard api with $personForeignId")
+      When(s"the get request is sent to the explore ratepayer endpoint with $personForeignId")
       exploreRatepayer(context, personForeignId)
       Then("the response should contain the following details")
       val expectedResponse: Persons = Persons(
-        List(
+        persons = List(
           Person(
             id = Some(16L),
             idx = "1.16.1",
@@ -54,7 +54,7 @@ class ExploreRatepayerFeatureSpec
             description =
               "A Government Gateway authenticated natural, corporate or crown user of online services provided by the UK Government/HMRC whose type and class are not yet known or re-confirmed.",
             origination = Some("20260407T111712Z"),
-            termination = null,
+            termination = None,
             category = CodeMeaning(
               Some("LTX-DOM-PSN"),
               Some("Local taxation domain person")
@@ -78,12 +78,19 @@ class ExploreRatepayerFeatureSpec
               foreign_names = List.empty,
               foreign_labels = List.empty,
               names = NameData(
-                null, null, null, null, null, null, null, null
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None
               ),
               communications = Communications(
-                null,
-                null,
-                null
+                None,
+                None,
+                None
               )
             ),
             protodata = List.empty,
@@ -113,7 +120,7 @@ class ExploreRatepayerFeatureSpec
                 description =
                   "A local taxation domain authenticated persona whose type and class are not yet known or re-confirmed, and that is assignable to the person.",
                 origination = Some("20260407T111712Z"),
-                termination = null,
+                termination = None,
                 CodeMeaning(
                   Some("LTX-DOM-PSA"),
                   Some("Local taxation domain persona")
@@ -137,12 +144,19 @@ class ExploreRatepayerFeatureSpec
                   foreign_names = List.empty,
                   foreign_labels = List.empty,
                   names = NameData(
-                    null, null, null, null, null, null, null, null
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None
                   ),
                   communications = Communications(
-                    null,
-                    null,
-                    null
+                    None,
+                    None,
+                    None
                   )
                 ),
                 protodata = List.empty,

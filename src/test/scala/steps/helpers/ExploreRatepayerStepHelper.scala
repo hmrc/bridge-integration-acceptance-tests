@@ -33,16 +33,16 @@ trait ExploreRatepayerStepHelper { this: Matchers =>
     val response: StandaloneWSResponse = ExploreRatepayerRequestBuilder.exploreRatepayerData(credId)
 
     val jsonResponseBody = response.body[JsValue]
-    context.responseBody = Some(jsonResponseBody.as[List[Person]])
+    context.responseBody = Some(jsonResponseBody.as[Persons])
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
   }
 
   def theResponseShouldContainTheFollowingDetails(
     context: ExploreRatepayerContext,
-    expectedResponse: List[Person]
+    expectedResponse: Persons
   ): Unit = {
-    val actualResponseBody: Option[List[Person]] = context.responseBody
+    val actualResponseBody: Option[Persons] = context.responseBody
 
     context.status     shouldBe 200
     actualResponseBody shouldBe Some(expectedResponse)

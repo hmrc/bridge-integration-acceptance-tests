@@ -19,7 +19,7 @@ package steps.context
 import models.{Person, Persons}
 
 final case class ExploreRatepayerContext(
-  var responseBody: Option[List[Person]] = None,
+  var responseBody: Option[Persons] = None,
   var status: Int = 0,
   var headers: Map[String, String] = Map.empty
 )
