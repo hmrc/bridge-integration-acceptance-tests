@@ -38,7 +38,6 @@ class ExploreRatepayerFeatureSpec
   }
 
   Feature("Explore Ratepayer API Test") {
-
     Scenario("Retrieve a Ratepayer Status Response") { context =>
       val personForeignId           = "123456789567"
       When(s"the get request is sent to the explore ratepayer endpoint with $personForeignId")
