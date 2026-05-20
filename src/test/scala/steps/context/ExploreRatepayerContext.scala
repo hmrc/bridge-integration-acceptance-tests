@@ -16,7 +16,7 @@
 
 package steps.context
 
-import models.{Person, Persons}
+import models.Persons
 
 final case class ExploreRatepayerContext(
   var responseBody: Option[Persons] = None,

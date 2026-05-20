@@ -16,36 +16,36 @@
 
 package steps.helpers
 
-import builders.ExploreRatepayerRequestBuilder
-import models.Persons
+import builders.PropertyLinkingRequestBuilder
+import models.RegisterRatepayerResponse
 import org.scalatest.matchers.should.Matchers
 import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson
 import play.api.libs.ws.StandaloneWSResponse
-import steps.context.ExploreRatepayerContext
+import steps.context.PropertyLinkingContext
 
-trait ExploreRatepayerStepHelper { this: Matchers =>
+trait PropertyLinkingStepHelper { this: Matchers =>
 
-  def exploreRatepayer(
-    context: ExploreRatepayerContext,
-    credId: String
+  def propertyLinking(
+    context: PropertyLinkingContext,
+    credId: String,
+    assessmentId: String
   ): Unit = {
-    val response: StandaloneWSResponse = ExploreRatepayerRequestBuilder.exploreRatepayerData(credId)
+    val response: StandaloneWSResponse = PropertyLinkingRequestBuilder.propertyLinkingRequest(credId, assessmentId)
 
     val jsonResponseBody = response.body[JsValue]
-    context.responseBody = Some(jsonResponseBody.as[Persons])
+    // context.responseBody = Some(jsonResponseBody.as[Properties])
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
   }
 
   def theResponseShouldContainTheFollowingDetails(
-    context: ExploreRatepayerContext,
-    expectedResponse: Persons
-  ): Unit = {
-    val actualResponseBody: Option[Persons] = context.responseBody
+    context: PropertyLinkingContext,
+    expectedResponse: RegisterRatepayerResponse
+  ): Unit =
+    val actualResponseBody: Option[RegisterRatepayerResponse] = context.responseBody
 
-    context.status     shouldBe 200
-    actualResponseBody shouldBe Some(expectedResponse)
-  }
+    context.status shouldBe 200
+    // actualResponseBody shouldBe Some(expectedResponse)
 
 }

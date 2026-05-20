@@ -18,8 +18,8 @@ package steps.context
 
 import models.RegisterRatepayerResponse
 
-final case class RegisterContext(
-  var responseBody: Option[RegisterRatepayerResponse] = None,
+final case class PropertyLinkingContext(
   var status: Int = 0,
+  var responseBody: Option[RegisterRatepayerResponse] = None,
   var headers: Map[String, String] = Map.empty
 )

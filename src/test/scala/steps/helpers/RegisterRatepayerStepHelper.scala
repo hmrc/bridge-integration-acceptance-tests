@@ -16,8 +16,8 @@
 
 package steps.helpers
 
-import builders.{DashboardRequestBuilder, RegisterRatepayerRequestBuilder}
-import models.{RatepayerStatusResponse, RegisterRatepayerResponse}
+import builders.RegisterRatepayerRequestBuilder
+import models.RegisterRatepayerResponse
 import org.scalatest.matchers.should.Matchers
 import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson
