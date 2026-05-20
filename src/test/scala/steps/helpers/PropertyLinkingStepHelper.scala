@@ -34,19 +34,18 @@ trait PropertyLinkingStepHelper { this: Matchers =>
     val response: StandaloneWSResponse = PropertyLinkingRequestBuilder.propertyLinkingRequest(credId, assessmentId)
 
     val jsonResponseBody = response.body[JsValue]
-    context.responseBody = Some(jsonResponseBody.as[Properties])
+    // context.responseBody = Some(jsonResponseBody.as[Properties])
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
   }
 
   def theResponseShouldContainTheFollowingDetails(
     context: PropertyLinkingContext,
-    expectedResponse: Properties
-  ): Unit = {
-    val actualResponseBody: Option[Properties] = context.responseBody
+    expectedResponse: RegisterRatepayerResponse
+  ): Unit =
+    val actualResponseBody: Option[RegisterRatepayerResponse] = context.responseBody
 
     context.status shouldBe 200
     // actualResponseBody shouldBe Some(expectedResponse)
-  }
 
 }
