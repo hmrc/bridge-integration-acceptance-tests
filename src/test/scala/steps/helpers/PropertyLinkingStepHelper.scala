@@ -16,8 +16,8 @@
 
 package steps.helpers
 
-import builders.{DashboardRequestBuilder, PropertyLinkingRequestBuilder, RegisterRatepayerRequestBuilder}
-import models.{Persons, Properties, Property, PropertyLinkingResponse, RatepayerStatusResponse, RegisterRatepayerResponse}
+import builders.PropertyLinkingRequestBuilder
+import models.RegisterRatepayerResponse
 import org.scalatest.matchers.should.Matchers
 import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson

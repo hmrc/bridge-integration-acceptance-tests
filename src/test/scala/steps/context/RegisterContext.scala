@@ -16,7 +16,7 @@
 
 package steps.context
 
-import models.{RatepayerStatusResponse, RegisterRatepayerResponse}
+import models.RegisterRatepayerResponse
 
 final case class RegisterContext(
   var responseBody: Option[RegisterRatepayerResponse] = None,

@@ -16,12 +16,12 @@
 
 package uk.gov.hmrc.api.specs
 
-import models.{AddressData, CodeMeaning, Communications, ForeignId, ListData, LocationData, Metadata, MetadataStage, NameData, Person, PersonItem, PersonItemData, Persons, Properties, Property, PropertyAssessment, PropertyAssessmentData, PropertyData, PropertyLinkingResponse, PropertyReference, PropertyUse, RatepayerStatusResponse, ReceivingMetadata, RegisterRatepayerResponse, SendingMetadata, ValuationData, WorkflowData}
+import models.RegisterRatepayerResponse
 import org.scalatest.featurespec.FixtureAnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{GivenWhenThen, Outcome}
-import steps.context.{PropertyLinkingContext, RegisterContext}
-import steps.helpers.{PropertyLinkingStepHelper, RegisterRatepayerStepHelper}
+import steps.context.PropertyLinkingContext
+import steps.helpers.PropertyLinkingStepHelper
 
 class PropertyLinkingFeatureSpec
     extends FixtureAnyFeatureSpec

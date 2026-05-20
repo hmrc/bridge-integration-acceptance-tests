@@ -16,7 +16,7 @@
 
 package steps.context
 
-import models.{Properties, Property, PropertyLinkingResponse, RegisterRatepayerResponse}
+import models.RegisterRatepayerResponse
 
 final case class PropertyLinkingContext(
   var status: Int = 0,
