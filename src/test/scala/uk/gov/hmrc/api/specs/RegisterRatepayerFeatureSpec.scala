@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.api.specs
 
-import models.{RatepayerStatusResponse, RegisterRatepayerResponse}
+import models.RegisterRatepayerResponse
 import org.scalatest.featurespec.FixtureAnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{GivenWhenThen, Outcome}

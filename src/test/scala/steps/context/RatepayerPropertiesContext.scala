@@ -16,10 +16,10 @@
 
 package steps.context
 
-import models.{RatepayerStatusResponse, RegisterRatepayerResponse}
+import play.api.libs.json.JsValue
 
 final case class RatepayerPropertiesContext(
-  var responseBody: Option[RegisterRatepayerResponse] = None,
+  var responseBody: Option[JsValue] = None,
   var status: Int = 0,
   var headers: Map[String, String] = Map.empty
 )

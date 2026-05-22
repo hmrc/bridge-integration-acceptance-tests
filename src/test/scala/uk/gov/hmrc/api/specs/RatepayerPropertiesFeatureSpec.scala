@@ -16,12 +16,12 @@
 
 package uk.gov.hmrc.api.specs
 
-import models.{RatepayerStatusResponse, RegisterRatepayerResponse}
 import org.scalatest.featurespec.FixtureAnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{GivenWhenThen, Outcome}
-import steps.context.{RatepayerPropertiesContext, RegisterContext}
-import steps.helpers.{RatepayerPropertiesStepHelper, RegisterRatepayerStepHelper}
+import play.api.libs.json.{JsValue, Json}
+import steps.context.RatepayerPropertiesContext
+import steps.helpers.RatepayerPropertiesStepHelper
 
 class RatepayerPropertiesFeatureSpec
     extends FixtureAnyFeatureSpec
@@ -39,14 +39,485 @@ class RatepayerPropertiesFeatureSpec
 
   Feature("RatepayerProperties API Test") {
 
-    Scenario("RatepayerPropertiess Response") { context =>
-      val personForeignId                             = "123456789567"
+    Scenario("RatepayerProperties Response") { context =>
+      val personForeignId           = "123456789567"
       When(s"the get request is sent to the RatepayerProperties api with $personForeignId")
       ratepayerPropertiesData(context, personForeignId)
       Then("the response should contain the following details")
-      val expectedResponse: RegisterRatepayerResponse =
-        RegisterRatepayerResponse(message = "Job successfully submitted")
-      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+      val expectedResponse: JsValue = Json.parse("""
+          |{
+          |  "properties": [
+          |    {
+          |      "id": 13,
+          |      "idx": "1.13.1",
+          |      "name": null,
+          |      "label": "13, NEW GEORGE STREET, PLYMOUTH, PL1 1RL",
+          |      "description": null,
+          |      "origination": "20260407T111712Z",
+          |      "termination": null,
+          |      "category": {
+          |        "code": "LTX-DOM-PRP",
+          |        "meaning": "Local taxation domain property"
+          |      },
+          |      "type": {
+          |        "code": "OCC",
+          |        "meaning": "Constituted by reference to actual occupation"
+          |      },
+          |      "class": {
+          |        "code": "HDT",
+          |        "meaning": "Statutory NDR hereditament"
+          |      },
+          |      "data": {
+          |        "foreign_ids": [
+          |          {
+          |            "system": "HMRC-VOA_CDB",
+          |            "location": "hmrc/voa/cdb/add_view",
+          |            "value": "27399677000"
+          |          },
+          |          {
+          |            "system": "National_Address_Gazetteer",
+          |            "location": "https://services.geoplace.co.uk/",
+          |            "value": "27399677001"
+          |          }
+          |        ],
+          |        "foreign_names": [],
+          |        "foreign_labels": [],
+          |        "addresses": {
+          |          "property_full_address": "13, NEW GEORGE STREET, PLYMOUTH, PL1 1RL",
+          |          "address_line_1": "16",
+          |          "address_postcode": "PL1 1RL",
+          |          "known_as": null
+          |        },
+          |        "location": {
+          |          "local_authority_pseudo_area_code": "1160",
+          |          "ordnance_survey": null,
+          |          "google_maps": null,
+          |          "local_authority": "Cardiff"
+          |        },
+          |        "assessments": [
+          |          {
+          |            "id": 13,
+          |            "idx": "1.13.1",
+          |            "name": null,
+          |            "label": "Non Domestic Rating Assessment",
+          |            "description": null,
+          |            "origination": "20260407T111712Z",
+          |            "termination": null,
+          |            "category": {
+          |              "code": "LTX-DOM-AST",
+          |              "meaning": "Local taxation domain assessment"
+          |            },
+          |            "type": {
+          |              "code": "CHG",
+          |              "meaning": "To be determined"
+          |            },
+          |            "class": {
+          |              "code": "RLE",
+          |              "meaning": "Register list entry"
+          |            },
+          |            "data": {
+          |              "foreign_ids": [
+          |                {
+          |                  "system": "HMRC-VOA_CDB",
+          |                  "location": "hmrc/voa/cdb/ndr_assessments",
+          |                  "value": "27399677000"
+          |                }
+          |              ],
+          |              "foreign_names": [],
+          |              "foreign_labels": [],
+          |              "property": {
+          |                "property_id": 13,
+          |                "cdb_property_id": 13,
+          |                "council_tax_reference_number": "123456",
+          |                "council_tax_band": "D"
+          |              },
+          |              "use": {
+          |                "is_composite": "N",
+          |                "is_part_exempt": "N",
+          |                "use_description": "RESTAURANT AND PREMISES RESTAURANT AND PREMISES",
+          |                "improvement_indicator": "IMP10",
+          |                "mixed_use_property": null
+          |              },
+          |              "valuation_surveys": [],
+          |              "valuations": [],
+          |              "valuation": {
+          |                "valuation_method_code": "234",
+          |                "valuation_rateable": 76500,
+          |                "valuation_effective_date": "20260407T111712Z"
+          |              },
+          |              "list": {
+          |                "list_category": "LTX-DOM-LST",
+          |                "list_function": "Charging",
+          |                "list_year": "2023",
+          |                "list_authority_code": "1160",
+          |                "court_code": "45645"
+          |              },
+          |              "workflow": {
+          |                "cdb_job_id": 39115380283
+          |              }
+          |            },
+          |            "protodata": [],
+          |            "metadata": {
+          |              "sending": {
+          |                "extracting": {
+          |                  "selecting": {}
+          |                },
+          |                "transforming": {
+          |                  "filtering": {},
+          |                  "supplementing": {},
+          |                  "recontextualising": {}
+          |                },
+          |                "loading": {
+          |                  "readying": {},
+          |                  "assuring": {},
+          |                  "signing": {},
+          |                  "encrypting": {},
+          |                  "sending": {}
+          |                }
+          |              },
+          |              "receiving": {
+          |                "unloading": {
+          |                  "receiving": {},
+          |                  "decrypting": {},
+          |                  "verifying": {},
+          |                  "assuring": {},
+          |                  "readying": {}
+          |                },
+          |                "transforming": {
+          |                  "recontextualising": {},
+          |                  "dropping": {},
+          |                  "restoring": {}
+          |                },
+          |                "storing": {
+          |                  "inserting": {}
+          |                }
+          |              }
+          |            },
+          |            "compartments": {},
+          |            "items": []
+          |          }
+          |        ]
+          |      },
+          |      "protodata": [],
+          |      "metadata": {
+          |        "sending": {
+          |          "extracting": {
+          |            "selecting": {}
+          |          },
+          |          "transforming": {
+          |            "filtering": {},
+          |            "supplementing": {},
+          |            "recontextualising": {}
+          |          },
+          |          "loading": {
+          |            "readying": {},
+          |            "assuring": {},
+          |            "signing": {},
+          |            "encrypting": {},
+          |            "sending": {}
+          |          }
+          |        },
+          |        "receiving": {
+          |          "unloading": {
+          |            "receiving": {},
+          |            "decrypting": {},
+          |            "verifying": {},
+          |            "assuring": {},
+          |            "readying": {}
+          |          },
+          |          "transforming": {
+          |            "recontextualising": {},
+          |            "dropping": {},
+          |            "restoring": {}
+          |          },
+          |          "storing": {
+          |            "inserting": {}
+          |          }
+          |        }
+          |      },
+          |      "compartments": {},
+          |      "items": []
+          |    }
+          |  ],
+          |  "persons": [
+          |    {
+          |      "id": 16,
+          |      "idx": "1.16.1",
+          |      "name": "Person 1",
+          |      "label": "Person Label 1",
+          |      "description": "A Government Gateway authenticated natural, corporate or crown user of online services provided by the UK Government/HMRC whose type and class are not yet known or re-confirmed.",
+          |      "origination": "20260407T111712Z",
+          |      "termination": null,
+          |      "category": {
+          |        "code": "LTX-DOM-PSN",
+          |        "meaning": "Local taxation domain person"
+          |      },
+          |      "type": {
+          |        "code": "COR",
+          |        "meaning": "Corporate"
+          |      },
+          |      "class": {
+          |        "code": "GGY",
+          |        "meaning": "Any government gateway user"
+          |      },
+          |      "data": {
+          |        "foreign_ids": [
+          |          {
+          |            "system": "Government_Gateway",
+          |            "location": "UK",
+          |            "value": "123456789567"
+          |          }
+          |        ],
+          |        "foreign_names": [],
+          |        "foreign_labels": [],
+          |        "names": {
+          |          "title_common": null,
+          |          "title_uncommon": null,
+          |          "forenames": null,
+          |          "surname": null,
+          |          "post_nominals": null,
+          |          "corporate_name": null,
+          |          "crown_name": null,
+          |          "known_as": null
+          |        },
+          |        "communications": {
+          |          "postal_address": null,
+          |          "telephone_number": null,
+          |          "email": null
+          |        }
+          |      },
+          |      "protodata": [],
+          |      "metadata": {
+          |        "sending": {
+          |          "extracting": {
+          |            "selecting": {}
+          |          },
+          |          "transforming": {
+          |            "filtering": {},
+          |            "supplementing": {},
+          |            "recontextualising": {}
+          |          },
+          |          "loading": {
+          |            "readying": {},
+          |            "assuring": {},
+          |            "signing": {},
+          |            "encrypting": {},
+          |            "sending": {}
+          |          }
+          |        },
+          |        "receiving": {
+          |          "unloading": {
+          |            "receiving": {},
+          |            "decrypting": {},
+          |            "verifying": {},
+          |            "assuring": {},
+          |            "readying": {}
+          |          },
+          |          "transforming": {
+          |            "recontextualising": {},
+          |            "dropping": {},
+          |            "restoring": {}
+          |          },
+          |          "storing": {
+          |            "inserting": {}
+          |          }
+          |        }
+          |      },
+          |      "compartments": {},
+          |      "items": [
+          |        {
+          |          "id": 13,
+          |          "idx": "1.2.1.1",
+          |          "name": "Persona 1",
+          |          "label": "Persona Label 1",
+          |          "description": "A local taxation domain authenticated persona whose type and class are not yet known or re-confirmed, and that is assignable to the person.",
+          |          "origination": "20260407T111712Z",
+          |          "termination": null,
+          |          "category": {
+          |            "code": "LTX-DOM-PSA",
+          |            "meaning": "Local taxation domain persona"
+          |          },
+          |          "type": {
+          |            "code": "TXP",
+          |            "meaning": "LGFA taxpayer"
+          |          },
+          |          "class": {
+          |            "code": "RPO",
+          |            "meaning": "Ratepayer (occupier)"
+          |          },
+          |          "data": {
+          |            "foreign_ids": [
+          |              {
+          |                "system": "Government_Gateway",
+          |                "location": "UK",
+          |                "value": "123456789567"
+          |              }
+          |            ],
+          |            "foreign_names": [],
+          |            "foreign_labels": [],
+          |            "names": {
+          |              "title_common": null,
+          |              "title_uncommon": null,
+          |              "forenames": null,
+          |              "surname": null,
+          |              "post_nominals": null,
+          |              "corporate_name": null,
+          |              "crown_name": null,
+          |              "known_as": null
+          |            },
+          |            "communications": {
+          |              "postal_address": null,
+          |              "telephone_number": null,
+          |              "email": null
+          |            }
+          |          },
+          |          "protodata": [],
+          |          "metadata": {
+          |            "sending": {
+          |              "extracting": {
+          |                "selecting": {}
+          |              },
+          |              "transforming": {
+          |                "filtering": {},
+          |                "supplementing": {},
+          |                "recontextualising": {}
+          |              },
+          |              "loading": {
+          |                "readying": {},
+          |                "assuring": {},
+          |                "signing": {},
+          |                "encrypting": {},
+          |                "sending": {}
+          |              }
+          |            },
+          |            "receiving": {
+          |              "unloading": {
+          |                "receiving": {},
+          |                "decrypting": {},
+          |                "verifying": {},
+          |                "assuring": {},
+          |                "readying": {}
+          |              },
+          |              "transforming": {
+          |                "recontextualising": {},
+          |                "dropping": {},
+          |                "restoring": {}
+          |              },
+          |              "storing": {
+          |                "inserting": {}
+          |              }
+          |            }
+          |          },
+          |          "compartments": {},
+          |          "items": []
+          |        }
+          |      ]
+          |    }
+          |  ],
+          |  "relationships": [
+          |    {
+          |      "id": 13,
+          |      "idx": "1.13.1",
+          |      "name": "Property Link",
+          |      "label": "Ratepayer-ListEntry-Property Link",
+          |      "description": "A relationships between LGFA88shd9para4J person-personas and LGFA88 hereditaments for which such personas are obliged to provide LGFA88shd9para4I(1) notofiable information.",
+          |      "origination": null,
+          |      "termination": null,
+          |      "category": {
+          |        "code": "LTX-DOM-REL",
+          |        "meaning": "Local taxation domain relationship"
+          |      },
+          |      "type": {
+          |        "code": "LIB",
+          |        "meaning": "Liability | One entity is liable for other entity(s) and the other entity(s) are the basis for the liabilities extent"
+          |      },
+          |      "class": {
+          |        "code": "LOC",
+          |        "meaning": "Local Non Domestic Rating Occupied Hereditament Charge"
+          |      },
+          |      "data": {
+          |        "foreign_ids": [],
+          |        "foreign_names": [],
+          |        "foreign_labels": [],
+          |        "manifestations": [
+          |          {
+          |            "artifact_reference": null,
+          |            "artifact_code": "NRB",
+          |            "artifact_description": null,
+          |            "issued_date": null,
+          |            "withdrawn_date": null,
+          |            "effective_from_date": null,
+          |            "effective_to_date": null,
+          |            "observed_date": null,
+          |            "operative_area_code": null,
+          |            "operative_area_name": null,
+          |            "protodata_ptr": "https://hmrc/sdes/yry64849ree",
+          |            "notes": null
+          |          }
+          |        ]
+          |      },
+          |      "protodata": [],
+          |      "metadata": {
+          |        "sending": {
+          |          "extracting": {
+          |            "selecting": {}
+          |          },
+          |          "transforming": {
+          |            "filtering": {},
+          |            "supplementing": {},
+          |            "recontextualising": {}
+          |          },
+          |          "loading": {
+          |            "readying": {},
+          |            "assuring": {},
+          |            "signing": {},
+          |            "encrypting": {},
+          |            "sending": {}
+          |          }
+          |        },
+          |        "receiving": {
+          |          "unloading": {
+          |            "receiving": {},
+          |            "decrypting": {},
+          |            "verifying": {},
+          |            "assuring": {},
+          |            "readying": {}
+          |          },
+          |          "transforming": {
+          |            "recontextualising": {},
+          |            "dropping": {},
+          |            "restoring": {}
+          |          },
+          |          "storing": {
+          |            "inserting": {}
+          |          }
+          |        }
+          |      },
+          |      "compartments": {},
+          |      "items": [
+          |        {
+          |          "transportation": {
+          |            "path": "/job/compartments/persons/@id=16/items/@id=13"
+          |          },
+          |          "persistence": {
+          |            "place": "LTX-DOM-PSA",
+          |            "identifier": 13
+          |          }
+          |        },
+          |        {
+          |          "transportation": {
+          |            "path": "/job/compartments/properties/@id=13/data/assessments/@id=13"
+          |          },
+          |          "persistence": {
+          |            "place": "LTX-DOM-AST",
+          |            "identifier": 13
+          |          }
+          |        }
+          |      ]
+          |    }
+          |  ]
+          |}
+          |""".stripMargin)
     }
 
   }

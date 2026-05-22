@@ -17,7 +17,7 @@
 package steps.helpers
 
 import builders.ExploreRatepayerRequestBuilder
-import models.{Person, Persons}
+import models.Persons
 import org.scalatest.matchers.should.Matchers
 import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson

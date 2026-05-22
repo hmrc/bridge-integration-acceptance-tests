@@ -18,7 +18,6 @@ package builders
 
 import builders.ExploreRatepayerRequestBuilder.{bridgeIntegrationUrl, createBearerToken}
 import client.WsClient
-import play.api.libs.json.Json
 import play.api.libs.ws.StandaloneWSResponse
 import utils.BaseRequests
 
@@ -37,14 +36,9 @@ object RatepayerPropertiesRequestBuilder extends BaseRequests {
       "Accept"        -> "application/vnd.hmrc.1.0+json"
     )
 
-    val jsonBody = Json.parse("""
-        |    {"ratepayerCredId":"Int-506baac0-0bbe-456f-9a55-e29e40eec97b","name":"Jake","contactNumber":"07943009560","isRegistered":true,"recoveryId":"2NC3-L7NT-J9QR"}
-        |""".stripMargin)
-
-    WsClient.post(
+    WsClient.get(
       uri = baseUri,
-      headers = headers,
-      json = jsonBody
+      headers = headers
     )
   }
 }
