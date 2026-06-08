@@ -6,10 +6,11 @@ import org.scalatest.matchers.should.Matchers
 import steps.context.GetPropertyLinksContext
 import steps.helpers.PropertyLinkingStepHelper
 
-class GetPropertyLinksFeatureSpec extends FixtureAnyFeatureSpec
-with GivenWhenThen
-with Matchers
-with PropertyLinkingStepHelper {
+class GetPropertyLinksFeatureSpec
+    extends FixtureAnyFeatureSpec
+    with GivenWhenThen
+    with Matchers
+    with PropertyLinkingStepHelper {
 
   override type FixtureParam = GetPropertyLinksContext
 

@@ -16,7 +16,8 @@ trait PropertyAssessmentStepHelper {
     credId: String,
     assessmentId: String
   ): Unit = {
-    val response: StandaloneWSResponse = PropertyAssessmentRequestBuilder.propertyAssessmentRequest(credId, assessmentId)
+    val response: StandaloneWSResponse =
+      PropertyAssessmentRequestBuilder.propertyAssessmentRequest(credId, assessmentId)
 
     val jsonResponseBody = response.body[JsValue]
     println(Json.prettyPrint(jsonResponseBody))
@@ -25,15 +26,13 @@ trait PropertyAssessmentStepHelper {
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
   }
 
-
   def theResponseShouldContainTheFollowingDetails(
-                                                   context: PropertyAssessmentContext,
-                                                   expectedResponse: PropertyAssessmentResponse
-                                                 ): Unit = {
+    context: PropertyAssessmentContext,
+    expectedResponse: PropertyAssessmentResponse
+  ): Unit = {
     val actualResponseBody: Option[PropertyAssessmentResponse] = context.responseBody
 
     context.status shouldBe 200
   }
-
 
 }

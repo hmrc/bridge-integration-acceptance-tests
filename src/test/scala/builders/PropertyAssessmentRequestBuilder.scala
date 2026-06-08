@@ -6,7 +6,7 @@ import play.api.libs.ws.StandaloneWSResponse
 import utils.BaseRequests
 
 object PropertyAssessmentRequestBuilder extends BaseRequests {
-    
+
   def propertyAssessmentRequest(credId: String, assessmentId: String): StandaloneWSResponse = {
     val bearerToken = createBearerToken(credId = credId)
     val baseUri     = s"$bridgeIntegrationUrl/property-assessment/$credId/assessment/$assessmentId"
@@ -16,9 +16,8 @@ object PropertyAssessmentRequestBuilder extends BaseRequests {
       "Content-Type"  -> "application/json",
       "Accept"        -> "application/vnd.hmrc.1.0+json"
     )
-    
-    val json: JsValue = play.api.libs.json.Json.parse(
-      """
+
+    val json: JsValue = play.api.libs.json.Json.parse("""
         {"properties" : [ {                                                                                                                                                                                                                          
     "id" : 13,                                                                                                                                                                                                                                
     "idx" : "1.13.1",                                                                                                                                                                                                                         
@@ -188,7 +187,7 @@ object PropertyAssessmentRequestBuilder extends BaseRequests {
   } ]                                                                                                                                                                                                                                         
 }
       """.stripMargin)
-    
+
     WsClient.post(
       uri = baseUri,
       headers = headers,

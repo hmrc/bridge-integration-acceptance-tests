@@ -7,11 +7,11 @@ import org.scalatest.matchers.should.Matchers
 import steps.context.PropertyAssessmentContext
 import steps.helpers.PropertyAssessmentStepHelper
 
-class PropertyAssessmentFeatureSpec extends FixtureAnyFeatureSpec
-  with GivenWhenThen
-  with Matchers
-  with PropertyAssessmentStepHelper {
-
+class PropertyAssessmentFeatureSpec
+    extends FixtureAnyFeatureSpec
+    with GivenWhenThen
+    with Matchers
+    with PropertyAssessmentStepHelper {
 
   override type FixtureParam = PropertyAssessmentContext
 
@@ -23,8 +23,8 @@ class PropertyAssessmentFeatureSpec extends FixtureAnyFeatureSpec
 
   Feature("POST Property Assessment") {
     Scenario("Property Assessment Response") { context =>
-      val personForeignId = "123456789567"
-      val assessmentId = "27399677000"
+      val personForeignId  = "123456789567"
+      val assessmentId     = "27399677000"
       When(s"the get request is sent to the property linking api with $personForeignId and $assessmentId")
       propertyAssessment(context, personForeignId, assessmentId)
       Then("the response should contain the following details")
@@ -32,6 +32,5 @@ class PropertyAssessmentFeatureSpec extends FixtureAnyFeatureSpec
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
     }
   }
-
 
 }

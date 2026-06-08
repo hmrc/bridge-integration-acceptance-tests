@@ -32,7 +32,7 @@ trait PropertyLinkingStepHelper { this: Matchers =>
     println(s"STATUS: ${response.status}")
     println(s"BODY: ${response.body}")
     println(s"HEADERS: ${response.headers}")
-    val jsonResponseBody = response.body[JsValue]
+    val jsonResponseBody               = response.body[JsValue]
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
   }
