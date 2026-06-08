@@ -16,10 +16,16 @@
 
 package steps.context
 
-import models.RegisterRatepayerResponse
+import models.{GetPropertyLinksResponse, RegisterRatepayerResponse}
 
 final case class PropertyLinkingContext(
   var status: Int = 0,
   var responseBody: Option[RegisterRatepayerResponse] = None,
+  var headers: Map[String, String] = Map.empty
+)
+
+final case class GetPropertyLinksContext(
+  var status: Int = 0,
+  var responseBody: Option[GetPropertyLinksResponse] = None,
   var headers: Map[String, String] = Map.empty
 )

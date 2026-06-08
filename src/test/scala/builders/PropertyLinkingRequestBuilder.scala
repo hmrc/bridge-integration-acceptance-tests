@@ -24,6 +24,24 @@ import utils.BaseRequests
 
 object PropertyLinkingRequestBuilder extends BaseRequests {
 
+  def getPropertyLinks(credId: String): StandaloneWSResponse = {
+    val bearerToken = createBearerToken(credId = credId)
+    val baseUri = s"$bridgeIntegrationUrl/ratepayer-properties/$credId"
+
+    println(s"service level bearer token ********************************* $bearerToken")
+    
+    val headers = Map(
+      "Authorization" -> s"Bearer $bearerToken",
+      "Content-Type"  -> "application/json",
+      "Accept"        -> "application/vnd.hmrc.1.0+json"
+    )
+    
+    WsClient.get(
+      uri = baseUri,
+      headers = headers
+    )
+  }
+
   def propertyLinkingRequest(credId: String, assessmentId: String): StandaloneWSResponse = {
     val bearerToken  = createBearerToken(credId = credId)
     val assessmentId = "27399677000"
