@@ -26,7 +26,7 @@ final case class PropertyLinkingContext(
 )
 
 final case class GetPropertyLinksContext(
-                                          var status: Int = 0,
-                                          var responseBody: Option[JsValue] = None,
-                                          var headers: Map[String, String] = Map.empty
+  var status: Int = 0,
+  var responseBody: Option[JsValue] = None,
+  var headers: Map[String, String] = Map.empty
 )
