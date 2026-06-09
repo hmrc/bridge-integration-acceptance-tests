@@ -35,6 +35,7 @@ trait PropertyLinkingStepHelper { this: Matchers =>
     val jsonResponseBody               = response.body[JsValue]
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
+    context.responseBody = Some(jsonResponseBody)
   }
 
   def propertyLinking(

@@ -16,7 +16,8 @@
 
 package steps.context
 
-import models.{GetPropertyLinksResponse, RegisterRatepayerResponse}
+import models.RegisterRatepayerResponse
+import play.api.libs.json.JsValue
 
 final case class PropertyLinkingContext(
   var status: Int = 0,
@@ -25,7 +26,7 @@ final case class PropertyLinkingContext(
 )
 
 final case class GetPropertyLinksContext(
-  var status: Int = 0,
-  var responseBody: Option[GetPropertyLinksResponse] = None,
-  var headers: Map[String, String] = Map.empty
+                                          var status: Int = 0,
+                                          var responseBody: Option[JsValue] = None,
+                                          var headers: Map[String, String] = Map.empty
 )
