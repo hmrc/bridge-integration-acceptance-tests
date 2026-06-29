@@ -22,12 +22,12 @@ import org.scalatest.matchers.should.Matchers
 import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson
 import play.api.libs.ws.StandaloneWSResponse
-import steps.context.{ExploreRatepayerContext, PropertyAssessmentContext}
+import steps.context.{ExploreRatepayerContext, PropertyAssessmentContext, PropertyAssessmentJobContext}
 
 trait PropertyAssessmentJobStepHelper { this: Matchers =>
 
   def propertyAssessment(
-    context: PropertyAssessmentContext,
+    context: PropertyAssessmentJobContext,
     credId: String
   ): Unit = {
     val response: StandaloneWSResponse = PropertyAssessmentJobRequestBuilder.propertyAssessmentData(credId)
@@ -38,7 +38,7 @@ trait PropertyAssessmentJobStepHelper { this: Matchers =>
   }
 
   def theResponseShouldContainTheFollowingDetails(
-    context: PropertyAssessmentContext,
+    context: PropertyAssessmentJobContext,
     expectedResponse: RegisterRatepayerResponse
   ): Unit =
     context.status shouldBe 200
