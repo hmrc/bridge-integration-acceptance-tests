@@ -257,9 +257,9 @@ class PropertyAssessmentFeatureSpec
             Property(
               id = Some(13),
               idx = Some("1.13.1"),
-              name = None,
+              name = Some("Property1"),
               label = Some("13, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
-              description = None,
+              description = Some("Residential property located at 13 New George Street, Plymouth."),
               origination = Some("20260407T111712Z"),
               termination = None,
               category = Some(
@@ -294,18 +294,30 @@ class PropertyAssessmentFeatureSpec
                       value = Some("27399677001")
                     )
                   ),
-                  foreign_names = List.empty,
-                  foreign_labels = List.empty,
+                  foreign_names = List(
+                    ForeignId(
+                      system = Some("Government_Gateway"),
+                      location = Some("UK"),
+                      value = Some("27399677000")
+                    )
+                  ),
+                  foreign_labels = List(
+                    ForeignId(
+                      system = Some("Government_Gateway"),
+                      location = Some("UK"),
+                      value = Some("27399677000")
+                    )
+                  ),
                   addresses = AddressData(
                     property_full_address = Some("13, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
                     address_line_1 = Some("13"),
                     address_postcode = Some("PL1 1RL"),
-                    known_as = None
+                    known_as = Some("PLYMOUTH")
                   ),
                   location = LocationData(
                     local_authority_pseudo_area_code = Some("1160"),
-                    ordnance_survey = None,
-                    google_maps = None
+                    ordnance_survey = Some("SD5932864552"),
+                    google_maps = Some("ChIJN1t_tDeuEmsRUsoyG83frY4")
                   ),
                   assessments = List(expectedAssessment)
                 )

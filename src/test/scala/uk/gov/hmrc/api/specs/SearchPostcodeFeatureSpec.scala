@@ -40,12 +40,67 @@ class SearchPostcodeFeatureSpec
   }
 
   Feature("Search Postcode API Test") {
-
     Scenario("Search postcode status response") { context =>
-      val personForeignId                        = "123456789567"
+      val personForeignId = "123456789567"
+
       When(s"the get request is sent to the search postcode api with $personForeignId")
       searchPostcode(context, personForeignId)
+
       Then("the response should contain the following details")
+
+      val emptyRecord: Record =
+        Record(
+          list = ValuationList(
+            id = None,
+            classification = Classification(None, None),
+            collection_authority = CollectionAuthority(None, None)
+          ),
+          list_entry = ListEntry(
+            relevant_property = RelevantProperty(None),
+            addresses = Addresses(None),
+            valuation = Valuation(None)
+          )
+        )
+
+      val ceredigionCollectionAuthority: CollectionAuthority =
+        CollectionAuthority(
+          ons_code = Some("W07000064"),
+          ons_code_label = Some("Ceredigion | Ceredigion")
+        )
+
+      val ceredigionEmptyRecord: Record =
+        Record(
+          list = ValuationList(
+            id = None,
+            classification = Classification(None, None),
+            collection_authority = ceredigionCollectionAuthority
+          ),
+          list_entry = ListEntry(
+            relevant_property = RelevantProperty(None),
+            addresses = Addresses(None),
+            valuation = Valuation(None)
+          )
+        )
+
+      val populatedCeredigionRecord: Record =
+        Record(
+          list = ValuationList(
+            id = None,
+            classification = Classification(None, None),
+            collection_authority = ceredigionCollectionAuthority
+          ),
+          list_entry = ListEntry(
+            relevant_property = RelevantProperty(Some(3L)),
+            addresses = Addresses(None),
+            valuation = Valuation(Some("D"))
+          )
+        )
+
+      val expectedRecords: List[Record] =
+        List.fill(8)(emptyRecord) ++
+          List(populatedCeredigionRecord) ++
+          List.fill(39)(ceredigionEmptyRecord)
+
       val expectedResponse: PostcodeSearchResult =
         PostcodeSearchResult(
           results = Results(
@@ -60,97 +115,11 @@ class SearchPostcodeFeatureSpec
             prev = None,
             first = None,
             last = None,
-            records = List(
-              Record(
-                ValuationList(None, Classification(None, None), CollectionAuthority(None, None)),
-                ListEntry(RelevantProperty(None), Addresses(None), Valuation(None))
-              ),
-              Record(
-                ValuationList(None, Classification(None, None), CollectionAuthority(None, None)),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              ),
-              Record(
-                ValuationList(
-                  None,
-                  Classification(None, None),
-                  CollectionAuthority(None, None)
-                ),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              ),
-              Record(
-                ValuationList(
-                  None,
-                  Classification(None, None),
-                  CollectionAuthority(None, None)
-                ),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              ),
-              Record(
-                ValuationList(
-                  None,
-                  Classification(None, None),
-                  CollectionAuthority(None, None)
-                ),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              ),
-              Record(
-                ValuationList(
-                  None,
-                  Classification(None, None),
-                  CollectionAuthority(None, None)
-                ),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              ),
-              Record(
-                ValuationList(
-                  None,
-                  Classification(None, None),
-                  CollectionAuthority(None, None)
-                ),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              ),
-              Record(
-                ValuationList(
-                  None,
-                  Classification(None, None),
-                  CollectionAuthority(None, None)
-                ),
-                ListEntry(
-                  RelevantProperty(None),
-                  Addresses(None),
-                  Valuation(None)
-                )
-              )
-            )
+            records = expectedRecords
           )
         )
+
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
     }
-
   }
-
 }
