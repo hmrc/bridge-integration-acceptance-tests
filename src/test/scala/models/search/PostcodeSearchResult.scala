@@ -55,7 +55,7 @@ object Record:
     Json.format[Record]
 
 case class ValuationList(
-  id: Option[String],
+  id: Id,
   classification: Classification,
   collection_authority: CollectionAuthority
 )
@@ -64,9 +64,17 @@ object ValuationList:
   implicit val format: OFormat[ValuationList] =
     Json.format[ValuationList]
 
+case class Id(
+  value: Option[String]
+)
+
+object Id:
+  implicit val format: OFormat[Id] =
+    Json.format[Id]
+
 case class Classification(
   code: Option[String],
-  label: Option[String]
+  meaning: Option[String]
 )
 
 object Classification:
@@ -93,7 +101,7 @@ object ListEntry:
     Json.format[ListEntry]
 
 case class RelevantProperty(
-  id: Option[Long]
+  vos_property_id: Option[String]
 )
 
 object RelevantProperty:
