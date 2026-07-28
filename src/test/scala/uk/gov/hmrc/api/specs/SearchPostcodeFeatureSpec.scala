@@ -48,74 +48,47 @@ class SearchPostcodeFeatureSpec
 
       Then("the response should contain the following details")
 
-      val emptyRecord: Record =
+      val expectedRecord: Record =
         Record(
           list = ValuationList(
-            id = None,
-            classification = Classification(None, None),
-            collection_authority = CollectionAuthority(None, None)
+            id = Id(Some("123456789567")),
+            classification = Classification(
+              code = Some(""),
+              meaning = Some("")
+            ),
+            collection_authority = CollectionAuthority(
+              ons_code = Some("W07000064"),
+              ons_code_label = Some("Ceredigion | Ceredigion")
+            )
           ),
           list_entry = ListEntry(
-            relevant_property = RelevantProperty(None),
-            addresses = Addresses(None),
-            valuation = Valuation(None)
+            relevant_property = RelevantProperty(
+              vos_property_id = Some("VOS-2")
+            ),
+            addresses = Addresses(
+              property_full_address = Some("4 Clos y Fedwen, Cardiff, CF14 0AA")
+            ),
+            valuation = Valuation(
+              value = Some("D")
+            )
           )
         )
-
-      val ceredigionCollectionAuthority: CollectionAuthority =
-        CollectionAuthority(
-          ons_code = Some("W07000064"),
-          ons_code_label = Some("Ceredigion | Ceredigion")
-        )
-
-      val ceredigionEmptyRecord: Record =
-        Record(
-          list = ValuationList(
-            id = None,
-            classification = Classification(None, None),
-            collection_authority = ceredigionCollectionAuthority
-          ),
-          list_entry = ListEntry(
-            relevant_property = RelevantProperty(None),
-            addresses = Addresses(None),
-            valuation = Valuation(None)
-          )
-        )
-
-      val populatedCeredigionRecord: Record =
-        Record(
-          list = ValuationList(
-            id = None,
-            classification = Classification(None, None),
-            collection_authority = ceredigionCollectionAuthority
-          ),
-          list_entry = ListEntry(
-            relevant_property = RelevantProperty(Some(3L)),
-            addresses = Addresses(None),
-            valuation = Valuation(Some("D"))
-          )
-        )
-
-      val expectedRecords: List[Record] =
-        List.fill(8)(emptyRecord) ++
-          List(populatedCeredigionRecord) ++
-          List.fill(39)(ceredigionEmptyRecord)
 
       val expectedResponse: PostcodeSearchResult =
         PostcodeSearchResult(
           results = Results(
-            current_page = None,
-            page_size = None,
-            total_results = None,
-            total_pages = None,
-            has_next = None,
-            has_previous = None,
+            current_page = Some(1),
+            page_size = Some(20),
+            total_results = Some(1),
+            total_pages = Some(1),
+            has_next = Some(false),
+            has_previous = Some(false),
             self = None,
             next = None,
             prev = None,
             first = None,
             last = None,
-            records = expectedRecords
+            records = Seq(expectedRecord)
           )
         )
 
