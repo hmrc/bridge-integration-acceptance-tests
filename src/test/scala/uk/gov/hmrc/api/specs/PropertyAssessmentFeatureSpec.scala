@@ -276,8 +276,8 @@ class PropertyAssessmentFeatureSpec
               ),
               `class` = Some(
                 CodeMeaning(
-                  code = Some("HDT"),
-                  meaning = Some("Statutory NDR hereditament")
+                  code = Some(""),
+                  meaning = Some("")
                 )
               ),
               data = Some(

@@ -16,9 +16,8 @@
 
 package uk.gov.hmrc.api.specs
 
-import models.RegisterRatepayerResponse
-import models.search.{PostcodeSearchResult, Record}
 import models.search.*
+import org.scalatest.{GivenWhenThen, Outcome}
 import org.scalatest.featurespec.FixtureAnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{GivenWhenThen, Outcome}
@@ -39,6 +38,30 @@ class SearchPostcodeFeatureSpec
     finally ()
   }
 
+  private def theResponseShouldContainSearchResultDetails(
+    context: FixtureParam,
+    expectedRecord: Record
+  ): Unit = {
+
+    val actualResponseBody: Option[PostcodeSearchResult] =
+      context.responseBody
+
+    context.status shouldBe 200
+
+    actualResponseBody should not be empty
+
+    val results = actualResponseBody.get.results
+
+    results.current_page  shouldBe Some(1)
+    results.page_size     shouldBe Some(20)
+    results.total_results shouldBe Some(194)
+    results.total_pages   shouldBe Some(10)
+    results.has_next      shouldBe Some(true)
+    results.has_previous  shouldBe Some(false)
+
+    results.records should contain(expectedRecord)
+  }
+
   Feature("Search Postcode API Test") {
     Scenario("Search postcode status response") { context =>
       val personForeignId = "123456789567"
@@ -46,7 +69,7 @@ class SearchPostcodeFeatureSpec
       When(s"the get request is sent to the search postcode api with $personForeignId")
       searchPostcode(context, personForeignId)
 
-      Then("the response should contain the following details")
+      Then("the response should contain the expected search result details")
 
       val expectedRecord: Record =
         Record(
@@ -56,43 +79,44 @@ class SearchPostcodeFeatureSpec
               code = Some(""),
               meaning = Some("")
             ),
+            country = None,
             collection_authority = CollectionAuthority(
               ons_code = Some("W07000064"),
               ons_code_label = Some("Ceredigion | Ceredigion")
-            )
+            ),
+            inforcement_period = None,
+            compilation_date = None,
+            valuation_date = None,
+            total_of_all_valuations = None
           ),
           list_entry = ListEntry(
-            relevant_property = RelevantProperty(
-              vos_property_id = Some("VOS-2")
+            id = None,
+            designated_person = None,
+            relevant_property = Some(
+              RelevantProperty(
+                vos_property_id = Some("VOS-2")
+              )
             ),
+            use = None,
+            valuation = Valuation(
+              value = Some("D"),
+              method = None,
+              previous = None
+            ),
+            period = None,
+            administration = None,
+            workflow = None,
             addresses = Addresses(
               property_full_address = Some("4 Clos y Fedwen, Cardiff, CF14 0AA")
             ),
-            valuation = Valuation(
-              value = Some("D")
-            )
+            property = None
           )
         )
 
-      val expectedResponse: PostcodeSearchResult =
-        PostcodeSearchResult(
-          results = Results(
-            current_page = Some(1),
-            page_size = Some(20),
-            total_results = Some(1),
-            total_pages = Some(1),
-            has_next = Some(false),
-            has_previous = Some(false),
-            self = None,
-            next = None,
-            prev = None,
-            first = None,
-            last = None,
-            records = Seq(expectedRecord)
-          )
-        )
-
-      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+      theResponseShouldContainSearchResultDetails(
+        context,
+        expectedRecord
+      )
     }
   }
 }
