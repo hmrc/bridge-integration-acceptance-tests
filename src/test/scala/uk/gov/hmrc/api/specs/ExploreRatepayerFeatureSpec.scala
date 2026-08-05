@@ -45,139 +45,273 @@ class ExploreRatepayerFeatureSpec
       exploreRatepayer(context, personForeignId)
       Then("the response should contain the following details")
       val expectedResponse: Persons = Persons(
-        persons = List(
+        List(
           Person(
-            id = Some(16L),
-            idx = "1.16.1",
-            name = "Person 1",
-            label = "Person Label 1",
-            description =
-              "A Government Gateway authenticated natural, corporate or crown user of online services provided by the UK Government/HMRC whose type and class are not yet known or re-confirmed.",
-            origination = Some("20260407T111712Z"),
-            termination = None,
-            category = CodeMeaning(
-              Some("LTX-DOM-PSN"),
-              Some("Local taxation domain person")
+            Some(63),
+            "1.63.1",
+            "Person 1",
+            "Person Label 1",
+            "A Government Gateway authenticated natural, corporate or crown user of online services provided by the UK Government/HMRC whose type and class are not yet known or re-confirmed.",
+            Some("20260804T135936Z"),
+            None,
+            CodeMeaning(Some("LTX-DOM-PSN"), Some("Local taxation domain person")),
+            CodeMeaning(Some("COR"), Some("Corporate")),
+            CodeMeaning(Some("GGY"), Some("Any government gateway user")),
+            PersonItemData(
+              List(ForeignId(Some("Government_Gateway"), Some("UK"), Some("123456789567"))),
+              List(ForeignId(Some("Government_Gateway"), Some("UK"), Some("123456789567"))),
+              List(ForeignId(Some("Government_Gateway"), Some("UK"), Some("123456789567"))),
+              NameData(Some("Mr"), None, Some("Alex"), Some("Tester63"), None, None, None, Some("P63")),
+              Communications(
+                Some("1 High Street, Telford, TF1 1AA"),
+                Some("07700 90063"),
+                Some("person63@example.test")
+              )
             ),
-            `type` = CodeMeaning(
-              Some("COR"),
-              Some("Corporate")
-            ),
-            `class` = CodeMeaning(
-              Some("GGY"),
-              Some("Any government gateway user")
-            ),
-            data = PersonItemData(
-              foreign_ids = List(
-                ForeignId(
-                  system = Some("Government_Gateway"),
-                  location = Some("UK"),
-                  value = Some("123456789567")
+            List(),
+            Metadata(
+              SendingMetadata(
+                MetadataStage(
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map()
+                ),
+                MetadataStage(
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map()
+                ),
+                MetadataStage(
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map()
                 )
               ),
-              foreign_names = List.empty,
-              foreign_labels = List.empty,
-              names = NameData(
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None
-              ),
-              communications = Communications(
-                None,
-                None,
-                None
-              )
-            ),
-            protodata = List.empty,
-            metadata = Metadata(
-              sending = SendingMetadata(
-                extracting = MetadataStage(selecting = Map.empty),
-                transforming = MetadataStage(
-                  filtering = Map.empty,
-                  supplementing = Map.empty,
-                  recontextualising = Map.empty
+              ReceivingMetadata(
+                MetadataStage(
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map()
                 ),
-                loading = MetadataStage()
-              ),
-              receiving = ReceivingMetadata(
-                unloading = MetadataStage(),
-                transforming = MetadataStage(),
-                storing = MetadataStage()
+                MetadataStage(
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map()
+                ),
+                MetadataStage(
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map(),
+                  Map()
+                )
               )
             ),
-            compartments = Map.empty,
-            items = List(
+            Map(),
+            List(
               PersonItem(
-                id = Some(13L),
-                idx = "1.2.1.1",
-                name = "Persona 1",
-                label = "Persona Label 1",
-                description =
-                  "A local taxation domain authenticated persona whose type and class are not yet known or re-confirmed, and that is assignable to the person.",
-                origination = Some("20260407T111712Z"),
-                termination = None,
-                CodeMeaning(
-                  Some("LTX-DOM-PSA"),
-                  Some("Local taxation domain persona")
+                Some(59),
+                "1.2.1.1",
+                "Persona 1",
+                "Persona Label 1",
+                "A local taxation domain authenticated persona whose type and class are not yet known or re-confirmed, and that is assignable to the person.",
+                Some("20260804T135936Z"),
+                None,
+                CodeMeaning(Some("LTX-DOM-PSA"), Some("Local taxation domain persona")),
+                CodeMeaning(Some("TXP"), Some("LGFA taxpayer")),
+                CodeMeaning(Some("RPO"), Some("Ratepayer (occupier)")),
+                PersonItemData(
+                  List(ForeignId(Some("Government_Gateway"), Some("UK"), Some("123456789567"))),
+                  List(ForeignId(Some("Government_Gateway"), Some("UK"), Some("123456789567"))),
+                  List(ForeignId(Some("Government_Gateway"), Some("UK"), Some("123456789567"))),
+                  NameData(None, None, Some("Role 59"), Some("Holder"), None, None, None, Some("PR59")),
+                  Communications(
+                    Some("PO Box 159, Telford, TF2 2BB"),
+                    Some("020 7946 0059"),
+                    Some("persona59@example.test")
+                  )
                 ),
-                `type` = CodeMeaning(
-                  Some("TXP"),
-                  Some("LGFA taxpayer")
-                ),
-                `class` = CodeMeaning(
-                  Some("RPO"),
-                  Some("Ratepayer (occupier)")
-                ),
-                data = PersonItemData(
-                  foreign_ids = List(
-                    ForeignId(
-                      system = Some("Government_Gateway"),
-                      location = Some("UK"),
-                      value = Some("123456789567")
+                List(),
+                Metadata(
+                  SendingMetadata(
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
                     )
                   ),
-                  foreign_names = List.empty,
-                  foreign_labels = List.empty,
-                  names = NameData(
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None
-                  ),
-                  communications = Communications(
-                    None,
-                    None,
-                    None
-                  )
-                ),
-                protodata = List.empty,
-                metadata = Metadata(
-                  sending = SendingMetadata(
-                    extracting = MetadataStage(selecting = Map.empty),
-                    transforming = MetadataStage(
-                      filtering = Map.empty,
-                      supplementing = Map.empty,
-                      recontextualising = Map.empty
+                  ReceivingMetadata(
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
                     ),
-                    loading = MetadataStage()
-                  ),
-                  receiving = ReceivingMetadata(
-                    unloading = MetadataStage(),
-                    transforming = MetadataStage(),
-                    storing = MetadataStage()
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    )
                   )
                 ),
-                compartments = Map.empty,
-                items = List.empty
+                Map(),
+                List()
               )
             )
           )

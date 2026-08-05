@@ -253,83 +253,595 @@ class PropertyAssessmentFeatureSpec
 
       val expectedResponse: PropertyAssessmentContexted =
         PropertyAssessmentContexted(
-          properties = List(
+          List(
             Property(
-              id = Some(13),
-              idx = Some("1.13.1"),
-              name = Some("Property1"),
-              label = Some("13, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
-              description = Some("Residential property located at 13 New George Street, Plymouth."),
-              origination = Some("20260407T111712Z"),
-              termination = None,
-              category = Some(
+              Some(672),
+              Some("1.672.1"),
+              None,
+              Some("16, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
+              None,
+              Some("20260804T135936Z"),
+              None,
+              Some(CodeMeaning(Some("LTX-DOM-PRP"), Some("Local taxation domain property"))),
+              Some(CodeMeaning(Some("OCC"), Some("Constituted by reference to actual occupation"))),
+              Some(
                 CodeMeaning(
-                  code = Some("LTX-DOM-PRP"),
-                  meaning = Some("Local taxation domain property")
+                  Some("CVW"),
+                  Some("Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)")
                 )
               ),
-              `type` = Some(
-                CodeMeaning(
-                  code = Some("OCC"),
-                  meaning = Some("Constituted by reference to actual occupation")
-                )
-              ),
-              `class` = Some(
-                CodeMeaning(
-                  code = Some(""),
-                  meaning = Some("")
-                )
-              ),
-              data = Some(
+              Some(
                 PropertyData(
-                  foreign_ids = List(
+                  List(
+                    ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/add_view"), Some("27399677000")),
                     ForeignId(
-                      system = Some("HMRC-VOA_CDB"),
-                      location = Some("hmrc/voa/cdb/add_view"),
-                      value = Some("27399677000")
-                    ),
-                    ForeignId(
-                      system = Some("National_Address_Gazetteer"),
-                      location = Some("https://services.geoplace.co.uk/"),
-                      value = Some("27399677001")
+                      Some("National_Address_Gazetteer"),
+                      Some("https://services.geoplace.co.uk/"),
+                      Some("27399677001")
                     )
                   ),
-                  foreign_names = List(
-                    ForeignId(
-                      system = Some("Government_Gateway"),
-                      location = Some("UK"),
-                      value = Some("27399677000")
+                  List(ForeignId(Some("CDB"), Some("UK"), Some("27399677001"))),
+                  List(ForeignId(Some("CDB"), Some("UK"), Some("27399677001"))),
+                  AddressData(Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA"), Some("1"), Some("CF14 0AA"), None),
+                  LocationData(Some("1160"), None, None),
+                  List(
+                    PropertyAssessment(
+                      59,
+                      "1.59.1",
+                      None,
+                      "Non Domestic Rating Assessment",
+                      None,
+                      "20260804T135936Z",
+                      None,
+                      CodeMeaning(Some("LTX-DOM-AST"), Some("Local taxation domain assessment")),
+                      CodeMeaning(Some("CHG"), Some("To be determined")),
+                      CodeMeaning(Some("RLE"), Some("Register list entry")),
+                      PropertyAssessmentData(
+                        List(
+                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments"), Some("27399677000"))
+                        ),
+                        List(
+                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments1"), Some("27399677001"))
+                        ),
+                        List(
+                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments1"), Some("27399677001"))
+                        ),
+                        PropertyReference(672, 672),
+                        PropertyUse(Some("N"), Some("N"), Some("RESTAURANT AND PREMISES RESTAURANT AND PREMISES")),
+                        List(
+                          ValuationSurvey(
+                            59,
+                            "1.59.1",
+                            None,
+                            "Valuation survey supporting a local taxation rating list entry (assessment)",
+                            Some("Valuation Survey"),
+                            Some("20260804T135936Z"),
+                            None,
+                            CodeMeaning(Some("LTX-DOM-VAS"), Some("Local taxation domain valuation survey")),
+                            CodeMeaning(Some("SPL"), Some("Composed of a hierarchy of spatial containers")),
+                            CodeMeaning(
+                              Some("NIA"),
+                              Some("Areas measured to faces of internal perimeter or party walls")
+                            ),
+                            ValuationSurveyData(
+                              List(
+                                ForeignId(
+                                  Some("CDB_VSA_SURVEY"),
+                                  Some("hmrc-voa/cdb/vsa/hereditament_vals"),
+                                  Some("24104677000")
+                                )
+                              ),
+                              List(ForeignId(Some("SURV_SYS"), Some("survey.type"), Some("Retail"))),
+                              List(ForeignId(Some("SURV_SYS"), Some("surveyor.name"), Some("Surveyor Name"))),
+                              SurveyLevelItem(
+                                1,
+                                "1",
+                                None,
+                                "Site",
+                                None,
+                                None,
+                                None,
+                                CodeMeaning(
+                                  Some("LTX-DOM-CON"),
+                                  Some(
+                                    "Temporal spatial unit formed by reference to statutory and common law principles of rateable occupation."
+                                  )
+                                ),
+                                CodeMeaning(Some("HOR"), Some("A two dimensional horizontal unit of space")),
+                                CodeMeaning(Some("SIT"), Some("Site")),
+                                SurveyData(
+                                  List(
+                                    ArtifactRecord(
+                                      SourceValue(None, None),
+                                      SourceValue(None, None),
+                                      SourceValue(
+                                        Some("tom:sql/cdb:ndr/plant_machinery/os_refno:24104677000/description"),
+                                        Some("Plant and Machinery (Goods Lift)")
+                                      ),
+                                      QuantitySourceValue(
+                                        Some("tom:sql/cdb:ndr/plant_machinery/os_refno:24104677000/value"),
+                                        2550
+                                      ),
+                                      SourceValue(None, Some("GDP"))
+                                    )
+                                  ),
+                                  List(),
+                                  List(),
+                                  List(),
+                                  List(
+                                    ForeignId(
+                                      Some("HMRC-VOA_CDB"),
+                                      Some("hmrc/voa/cdb/hereditament_vals"),
+                                      Some("24104677000")
+                                    )
+                                  ),
+                                  List(),
+                                  List(),
+                                  List(),
+                                  List()
+                                ),
+                                List(),
+                                Metadata(
+                                  SendingMetadata(
+                                    MetadataStage(
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map()
+                                    ),
+                                    MetadataStage(
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map()
+                                    ),
+                                    MetadataStage(
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map()
+                                    )
+                                  ),
+                                  ReceivingMetadata(
+                                    MetadataStage(
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map()
+                                    ),
+                                    MetadataStage(
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map()
+                                    ),
+                                    MetadataStage(
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map(),
+                                      Map()
+                                    )
+                                  )
+                                ),
+                                Map(),
+                                List()
+                              )
+                            ),
+                            List(ProtoData("application/json", "Survey Blob", false, "", """{"doc":"seed","i":1}""")),
+                            Metadata(
+                              SendingMetadata(
+                                MetadataStage(
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map()
+                                ),
+                                MetadataStage(
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map()
+                                ),
+                                MetadataStage(
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map()
+                                )
+                              ),
+                              ReceivingMetadata(
+                                MetadataStage(
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map()
+                                ),
+                                MetadataStage(
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map()
+                                ),
+                                MetadataStage(
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map(),
+                                  Map()
+                                )
+                              )
+                            ),
+                            Map(),
+                            List()
+                          )
+                        ),
+                        List(),
+                        ValuationData(Some("234"), Some(76500), Some("20260804T135936Z")),
+                        ListData(Some("LTX-DOM-LST"), Some("Charging"), Some("2023"), Some("1160")),
+                        WorkflowData(Some(39115380283L))
+                      ),
+                      List(ProtoData("application/json", "Calc Inputs", false, "", """{"basis":"rcv","i":1}""")),
+                      Metadata(
+                        SendingMetadata(
+                          MetadataStage(
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map()
+                          ),
+                          MetadataStage(
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map()
+                          ),
+                          MetadataStage(
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map()
+                          )
+                        ),
+                        ReceivingMetadata(
+                          MetadataStage(
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map()
+                          ),
+                          MetadataStage(
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map()
+                          ),
+                          MetadataStage(
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map(),
+                            Map()
+                          )
+                        )
+                      ),
+                      Map(),
+                      List()
                     )
-                  ),
-                  foreign_labels = List(
-                    ForeignId(
-                      system = Some("Government_Gateway"),
-                      location = Some("UK"),
-                      value = Some("27399677000")
-                    )
-                  ),
-                  addresses = AddressData(
-                    property_full_address = Some("13, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
-                    address_line_1 = Some("13"),
-                    address_postcode = Some("PL1 1RL"),
-                    known_as = Some("PLYMOUTH")
-                  ),
-                  location = LocationData(
-                    local_authority_pseudo_area_code = Some("1160"),
-                    ordnance_survey = Some("SD5932864552"),
-                    google_maps = Some("ChIJN1t_tDeuEmsRUsoyG83frY4")
-                  ),
-                  assessments = List(expectedAssessment)
+                  )
                 )
               ),
-              protodata = Some(List.empty),
-              metadata = Some(emptyMetadata),
-              compartments = Some(Map.empty),
-              items = Some(List.empty)
+              Some(List(ProtoData("text/plain", "Notes", false, "", "Property note 1"))),
+              Some(
+                Metadata(
+                  SendingMetadata(
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    )
+                  ),
+                  ReceivingMetadata(
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    ),
+                    MetadataStage(
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map(),
+                      Map()
+                    )
+                  )
+                )
+              ),
+              Some(Map()),
+              Some(List())
             )
           )
         )
-
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
     }
   }
