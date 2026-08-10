@@ -258,7 +258,7 @@ class PropertyAssessmentFeatureSpec
               Some(672),
               Some("1.672.1"),
               None,
-              Some("16, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
+              Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA"),
               None,
               Some("20260804T135936Z"),
               None,
