@@ -16,8 +16,7 @@
 
 package uk.gov.hmrc.api.specs
 
-import models.RegisterRatepayerResponse
-import models.search.{ExploreResult, Record, *}
+import models.search.*
 import org.scalatest.featurespec.FixtureAnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{GivenWhenThen, Outcome}
@@ -45,99 +44,32 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
 
       val expectedResponse: ExploreResult =
         ExploreResult(
-          list = ValuationList(
-            id = Id(Some("123456789567")),
-            classification = Classification(
-              code = Some(""),
-              meaning = Some("")
+          ValuationList(
+            Id(Some("123456789567")),
+            Classification(
+              Some("CVW"),
+              Some("Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)")
             ),
-            country = Some(
-              Country(
-                ons_code = Some("W92000004"),
-                ons_code_label = Some("Wales | Cymru")
-              )
-            ),
-            collection_authority = CollectionAuthority(
-              ons_code = Some("W07000064"),
-              ons_code_label = Some("Ceredigion | Ceredigion")
-            ),
-            inforcement_period = Some(
-              InforcementPeriod(
-                commencement_date = Some("20050401"),
-                expiration_date = None
-              )
-            ),
-            compilation_date = None,
-            valuation_date = None,
-            total_of_all_valuations = None
+            Some(Country(Some("W92000004"), Some("Wales | Cymru"))),
+            CollectionAuthority(Some("W07000064"), Some("Ceredigion | Ceredigion")),
+            Some(InforcementPeriod(Some("20050401"), None)),
+            None,
+            None,
+            None
           ),
-          list_entry = ListEntry(
-            id = Some(
-              Id(
-                value = Some("123456789567")
-              )
-            ),
-            designated_person = Some(
-              DesignatedPerson(
-                name = Some("Designated Person 2"),
-                address = Some("1 Test Street, London"),
-                company_number = Some("COMP2")
-              )
-            ),
-            relevant_property = Some(
-              RelevantProperty(
-                vos_property_id = Some("VOS-2")
-              )
-            ),
-            use = Some(
-              Use(
-                description = Some("General Commercial Use"),
-                composite_ind = Some("N"),
-                part_exempt_ind = Some("N")
-              )
-            ),
-            valuation = Valuation(
-              value = Some("D"),
-              method = Some(
-                Method(
-                  code = None,
-                  meaning = None
-                )
-              ),
-              previous = Some("STD")
-            ),
-            period = Some(
-              Period(
-                effective_from_date = Some("20050401"),
-                effective_to_date = None
-              )
-            ),
-            administration = Some(
-              Administration(
-                alteration_date = Some("20230401"),
-                alteration_seq_no = Some("1"),
-                entry_seq_no = Some("1"),
-                judicially_ordered_by = None,
-                transitionally_certified = Some("N"),
-                collection_authority_ref = None
-              )
-            ),
-            workflow = Some(
-              Workflow(
-                creating_job_id = Some("R5R875-B52D043-F767863-66ZZZ")
-              )
-            ),
-            addresses = Addresses(
-              property_full_address = Some("4 Clos y Fedwen, Cardiff, CF14 0AA")
-            ),
-            property = Some(
-              Property(
-                improvement_ind = None
-              )
-            )
+          ListEntry(
+            Some(Id(Some("123456789567"))),
+            Some(DesignatedPerson(Some("Designated Person 844"), Some("1 Test Street, London"), Some("COMP844"))),
+            Some(RelevantProperty(Some("VOS-844"))),
+            Some(Use(Some("General Commercial Use"), Some("N"), Some("N"))),
+            Valuation(Some("D"), Some(Method(None, None)), Some("STD")),
+            Some(Period(Some("20050401"), None)),
+            Some(Administration(Some("20230401"), Some("1"), Some("1"), None, Some("N"), None)),
+            Some(Workflow(Some("R5R875-B52D043-F767863-66ZZZ"))),
+            Addresses(Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA")),
+            Some(Property(Some("N")))
           )
         )
-
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
     }
   }

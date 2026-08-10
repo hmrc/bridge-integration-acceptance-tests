@@ -54,9 +54,9 @@ class SearchPostcodeFeatureSpec
 
     results.current_page  shouldBe Some(1)
     results.page_size     shouldBe Some(20)
-    results.total_results shouldBe Some(194)
-    results.total_pages   shouldBe Some(10)
-    results.has_next      shouldBe Some(true)
+    results.total_results shouldBe Some(1)
+    results.total_pages   shouldBe Some(1)
+    results.has_next      shouldBe Some(false)
     results.has_previous  shouldBe Some(false)
 
     results.records should contain(expectedRecord)
@@ -73,46 +73,32 @@ class SearchPostcodeFeatureSpec
 
       val expectedRecord: Record =
         Record(
-          list = ValuationList(
-            id = Id(Some("123456789567")),
-            classification = Classification(
-              code = Some(""),
-              meaning = Some("")
+          ValuationList(
+            Id(Some("123456789567")),
+            Classification(
+              Some("CVW"),
+              Some("Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)")
             ),
-            country = None,
-            collection_authority = CollectionAuthority(
-              ons_code = Some("W07000064"),
-              ons_code_label = Some("Ceredigion | Ceredigion")
-            ),
-            inforcement_period = None,
-            compilation_date = None,
-            valuation_date = None,
-            total_of_all_valuations = None
+            None,
+            CollectionAuthority(Some("W07000064"), Some("Ceredigion | Ceredigion")),
+            None,
+            None,
+            None,
+            None
           ),
-          list_entry = ListEntry(
-            id = None,
-            designated_person = None,
-            relevant_property = Some(
-              RelevantProperty(
-                vos_property_id = Some("VOS-2")
-              )
-            ),
-            use = None,
-            valuation = Valuation(
-              value = Some("D"),
-              method = None,
-              previous = None
-            ),
-            period = None,
-            administration = None,
-            workflow = None,
-            addresses = Addresses(
-              property_full_address = Some("4 Clos y Fedwen, Cardiff, CF14 0AA")
-            ),
-            property = None
+          ListEntry(
+            None,
+            None,
+            Some(RelevantProperty(Some("VOS-844"))),
+            None,
+            Valuation(Some("D"), None, None),
+            None,
+            None,
+            None,
+            Addresses(Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA")),
+            None
           )
         )
-
       theResponseShouldContainSearchResultDetails(
         context,
         expectedRecord
