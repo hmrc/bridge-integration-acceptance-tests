@@ -16,25 +16,27 @@
 
 package steps.helpers
 
-import builders.SearchPostcodeRequestBuilder
+import builders.SearchPostcodeListRequestBuilder
 import models.search.PostcodeSearchResult
 import org.scalatest.matchers.should.Matchers
-import play.api.libs.json.{JsValue, Json}
+import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson
 import play.api.libs.ws.StandaloneWSResponse
-import steps.context.SearchPostcodeContext
+import steps.context.{SearchPostcodeContext, SearchPostcodeListContext}
 
-trait SearchPostcodeStepHelper { this: Matchers =>
+trait SearchPostcodeListStepHelper {
+  this: Matchers =>
 
   def searchPostcode(
-    context: SearchPostcodeContext,
-    credId: String
+    context: SearchPostcodeListContext,
+    credId: String,
+    postcode: String,
+    listType: String
   ): Unit = {
-    val response: StandaloneWSResponse = SearchPostcodeRequestBuilder.getPostcodeData(credId, postcode = "CF140AA")
+    val response: StandaloneWSResponse =
+      SearchPostcodeListRequestBuilder.getPostcodeData(credId, postcode = "CF140AA", listType)
 
     val jsonResponseBody = response.body[JsValue]
-    println("JSON RESPONSE")
-    println(Json.prettyPrint(jsonResponseBody))
     context.responseBody = Some(jsonResponseBody.as[PostcodeSearchResult])
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
