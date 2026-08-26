@@ -74,29 +74,64 @@ class SearchPostcodeFeatureSpec
       val expectedRecord: Record =
         Record(
           ValuationList(
-            Id(Some("123456789567")),
+            Id(Some("123456789569")),
             Classification(
               Some("CVW"),
-              Some("Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)")
+              Some(
+                "Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)"
+              )
             ),
             None,
-            CollectionAuthority(Some("W07000064"), Some("Ceredigion | Ceredigion")),
-            None,
-            None,
+            CollectionAuthority(
+              Some("W07000064"),
+              None
+            ),
             None,
             None
           ),
           ListEntry(
             None,
             None,
-            Some(RelevantProperty(Some("VOS-844"))),
             None,
-            Valuation(Some("D"), None, None),
+            Some(
+              Use(
+                Some("General Commercial Use"),
+                None,
+                None
+              )
+            ),
+            Valuation(
+              Some("D"),
+              None,
+              None
+            ),
+            Some(
+              Period(
+                Some("20050401T000000Z"),
+                Some("20280101T000000Z")
+              )
+            ),
             None,
             None,
-            None,
-            Addresses(Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA")),
-            None
+            Some(
+              Property(
+                Some(
+                  Id(
+                    Some("38DA4B95-5061-4423-8024-9CAC37956E42")
+                  )
+                ),
+                None,
+                Some(
+                  Address(
+                    Some("3, Y Deri Duon, Cardiff, South Glamorgan 3AA"),
+                    None,
+                    None,
+                    None
+                  )
+                ),
+                None
+              )
+            )
           )
         )
       theResponseShouldContainSearchResultDetails(

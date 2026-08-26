@@ -255,12 +255,12 @@ class PropertyAssessmentFeatureSpec
         PropertyAssessmentContexted(
           List(
             Property(
-              Some(672),
-              Some("1.672.1"),
+              Some(1),
+              Some("1.1.1"),
               None,
-              Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA"),
+              Some("1, NEW GEORGE STREET, PLYMOUTH, PL1 1RL"),
               None,
-              Some("20260804T135936Z"),
+              Some("20260824T125609Z"),
               None,
               Some(CodeMeaning(Some("LTX-DOM-PRP"), Some("Local taxation domain property"))),
               Some(CodeMeaning(Some("OCC"), Some("Constituted by reference to actual occupation"))),
@@ -273,25 +273,25 @@ class PropertyAssessmentFeatureSpec
               Some(
                 PropertyData(
                   List(
-                    ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/add_view"), Some("27399677000")),
+                    ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/add_view"), Some("2739960001")),
                     ForeignId(
                       Some("National_Address_Gazetteer"),
                       Some("https://services.geoplace.co.uk/"),
-                      Some("27399677001")
+                      Some("2739960001")
                     )
                   ),
-                  List(ForeignId(Some("CDB"), Some("UK"), Some("27399677001"))),
-                  List(ForeignId(Some("CDB"), Some("UK"), Some("27399677001"))),
-                  AddressData(Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA"), Some("1"), Some("CF14 0AA"), None),
+                  List(ForeignId(Some("CDB"), Some("UK"), Some("2739960001"))),
+                  List(ForeignId(Some("CDB"), Some("UK"), Some("2739960001"))),
+                  AddressData(Some("1, NEW GEORGE STREET, PLYMOUTH, PL1 1LY"), Some("1"), Some("PL1 1LY"), None),
                   LocationData(Some("1160"), None, None),
                   List(
                     PropertyAssessment(
-                      59,
-                      "1.59.1",
+                      1,
+                      "1.1.1",
                       None,
                       "Non Domestic Rating Assessment",
                       None,
-                      "20260804T135936Z",
+                      "20260824T125609Z",
                       None,
                       CodeMeaning(Some("LTX-DOM-AST"), Some("Local taxation domain assessment")),
                       CodeMeaning(Some("CHG"), Some("To be determined")),
@@ -301,21 +301,21 @@ class PropertyAssessmentFeatureSpec
                           ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments"), Some("27399677000"))
                         ),
                         List(
-                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments1"), Some("27399677001"))
+                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments1"), Some("27399677000"))
                         ),
                         List(
-                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments1"), Some("27399677001"))
+                          ForeignId(Some("HMRC-VOA_CDB"), Some("hmrc/voa/cdb/ndr_assessments1"), Some("27399677000"))
                         ),
-                        PropertyReference(672, 672),
+                        PropertyReference(1, 1),
                         PropertyUse(Some("N"), Some("N"), Some("RESTAURANT AND PREMISES RESTAURANT AND PREMISES")),
                         List(
                           ValuationSurvey(
-                            59,
-                            "1.59.1",
+                            1,
+                            "1.1.1",
                             None,
                             "Valuation survey supporting a local taxation rating list entry (assessment)",
                             Some("Valuation Survey"),
-                            Some("20260804T135936Z"),
+                            Some("20260824T125609Z"),
                             None,
                             CodeMeaning(Some("LTX-DOM-VAS"), Some("Local taxation domain valuation survey")),
                             CodeMeaning(Some("SPL"), Some("Composed of a hierarchy of spatial containers")),
@@ -328,7 +328,7 @@ class PropertyAssessmentFeatureSpec
                                 ForeignId(
                                   Some("CDB_VSA_SURVEY"),
                                   Some("hmrc-voa/cdb/vsa/hereditament_vals"),
-                                  Some("24104677000")
+                                  Some("2410460001")
                                 )
                               ),
                               List(ForeignId(Some("SURV_SYS"), Some("survey.type"), Some("Retail"))),
@@ -607,7 +607,7 @@ class PropertyAssessmentFeatureSpec
                           )
                         ),
                         List(),
-                        ValuationData(Some("234"), Some(76500), Some("20260804T135936Z")),
+                        ValuationData(Some("234"), Some(76500), Some("20260824T125609Z")),
                         ListData(Some("LTX-DOM-LST"), Some("Charging"), Some("2023"), Some("1160")),
                         WorkflowData(Some(39115380283L))
                       ),

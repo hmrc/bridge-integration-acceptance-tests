@@ -44,30 +44,121 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
 
       val expectedResponse: ExploreResult =
         ExploreResult(
-          ValuationList(
-            Id(Some("123456789567")),
-            Classification(
-              Some("CVW"),
-              Some("Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)")
-            ),
-            Some(Country(Some("W92000004"), Some("Wales | Cymru"))),
-            CollectionAuthority(Some("W07000064"), Some("Ceredigion | Ceredigion")),
-            Some(InforcementPeriod(Some("20050401"), None)),
-            None,
-            None,
-            None
-          ),
-          ListEntry(
-            Some(Id(Some("123456789567"))),
-            Some(DesignatedPerson(Some("Designated Person 844"), Some("1 Test Street, London"), Some("COMP844"))),
-            Some(RelevantProperty(Some("VOS-844"))),
-            Some(Use(Some("General Commercial Use"), Some("N"), Some("N"))),
-            Valuation(Some("D"), Some(Method(None, None)), Some("STD")),
-            Some(Period(Some("20050401"), None)),
-            Some(Administration(Some("20230401"), Some("1"), Some("1"), None, Some("N"), None)),
-            Some(Workflow(Some("R5R875-B52D043-F767863-66ZZZ"))),
-            Addresses(Some("1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA")),
-            Some(Property(Some("N")))
+          ExploreResults(
+            Seq(
+              ExploreRecord(
+                ExploreData(
+                  ValuationList(
+                    Id(Some("123456789569")),
+                    Classification(
+                      Some("CVW"),
+                      Some(
+                        "Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)"
+                      )
+                    ),
+                    Some(
+                      Country(
+                        Some("W92000004"),
+                        None
+                      )
+                    ),
+                    CollectionAuthority(
+                      Some("W07000064"),
+                      None
+                    ),
+                    Some(
+                      InforcementPeriod(
+                        Some("20050401"),
+                        None
+                      )
+                    ),
+                    Some(
+                      ListAdministration(
+                        Some("20260824T125609Z"),
+                        Some("20260824T125609Z"),
+                        Some("1003")
+                      )
+                    )
+                  ),
+                  ListEntry(
+                    Some(
+                      Id(
+                        Some("123456789569")
+                      )
+                    ),
+                    Some(
+                      DesignatedPerson(
+                        Some("Designated Person 3"),
+                        Some("1 Test Street, London"),
+                        Some("COMP3")
+                      )
+                    ),
+                    None,
+                    Some(
+                      Use(
+                        Some("General Commercial Use"),
+                        Some("N"),
+                        Some("N")
+                      )
+                    ),
+                    Valuation(
+                      Some("D"),
+                      Some(
+                        Method(
+                          None,
+                          None
+                        )
+                      ),
+                      Some("STD")
+                    ),
+                    Some(
+                      Period(
+                        Some("20050401T000000Z"),
+                        Some("20280101T000000Z")
+                      )
+                    ),
+                    Some(
+                      Administration(
+                        Some("20230401"),
+                        Some("1"),
+                        Some("1"),
+                        None,
+                        Some("N"),
+                        None
+                      )
+                    ),
+                    Some(
+                      Workflow(
+                        Some("R5R875-B52D043-F767863-66ZZZ")
+                      )
+                    ),
+                    Some(
+                      Property(
+                        Some(
+                          Id(
+                            Some("6A7D3B18-E92A-47AB-8795-82B6D1E78069")
+                          )
+                        ),
+                        None,
+                        Some(
+                          Address(
+                            Some("3, NEW GEORGE STREET, PLYMOUTH, PL1 3LY"),
+                            Some("3"),
+                            Some("PL1 3LY"),
+                            None
+                          )
+                        ),
+                        Some(
+                          PropertyWorkflow(
+                            Some("N")
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
           )
         )
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
