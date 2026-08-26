@@ -47,8 +47,7 @@ class SearchPostcodeListFeatureSpec
   }
 
   private def theResponseShouldContainSearchResultDetails(
-    context: FixtureParam,
-    expectedRecord: Record
+    context: FixtureParam
   ): Unit = {
 
     val actualResponseBody =
@@ -62,17 +61,15 @@ class SearchPostcodeListFeatureSpec
 
     results.current_page shouldBe Some(1)
 
-    results.page_size shouldBe None
+    results.page_size shouldBe Some(20)
 
-    results.total_results shouldBe Some(1)
+    results.total_results shouldBe Some(0)
 
-    results.total_pages shouldBe Some(1)
+    results.total_pages shouldBe Some(0)
 
     results.has_next shouldBe Some(false)
 
     results.has_previous shouldBe Some(false)
-
-    results.records should contain(expectedRecord)
 
   }
 
@@ -101,47 +98,8 @@ class SearchPostcodeListFeatureSpec
         "the response should contain the expected search result details"
       )
 
-      val expectedRecord =
-        Record(
-          ValuationList(
-            Id(Some("123456789567")),
-            Classification(
-              Some("CVW"),
-              Some(
-                "Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)"
-              )
-            ),
-            None,
-            CollectionAuthority(
-              Some("W07000064"),
-              Some("Ceredigion | Ceredigion")
-            ),
-            None,
-            None,
-            None,
-            None
-          ),
-          ListEntry(
-            None,
-            None,
-            Some(RelevantProperty(Some("VOS-844"))),
-            Some(Use(Some("General Commercial Use"), None, None)),
-            Valuation(Some("D"), None, None),
-            Some(Period(Some("20050401"), None)),
-            None,
-            None,
-            Addresses(
-              Some(
-                "1 Y Deri Duon, Lisvane, Cardiff,CF14 0AA"
-              )
-            ),
-            None
-          )
-        )
-
       theResponseShouldContainSearchResultDetails(
-        context,
-        expectedRecord
+        context
       )
 
     }

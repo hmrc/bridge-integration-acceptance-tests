@@ -22,11 +22,12 @@ import utils.BaseRequests
 
 object SearchPostcodeRequestBuilder extends BaseRequests {
 
-  def getPostcodeData(credId: String, postcode: String): StandaloneWSResponse = {
+  def getPostcodeData(credId: String, postcode: String, listType: String): StandaloneWSResponse = {
     val bearerToken = createBearerToken(credId = credId)
-    val baseUri     = s"$bridgeIntegrationUrl/postcode/$postcode"
+    val baseUri     = s"$bridgeIntegrationUrl/postcode/$postcode/$listType"
+
     println(s"service level bearer token *********************************$bearerToken")
-    val headers     = Map(
+    val headers = Map(
       "Authorization" -> s"Bearer $bearerToken",
       "Content-Type"  -> "application/json",
       "Accept"        -> "application/vnd.hmrc.1.0+json"

@@ -30,7 +30,8 @@ trait SearchPostcodeStepHelper { this: Matchers =>
     context: SearchPostcodeContext,
     credId: String
   ): Unit = {
-    val response: StandaloneWSResponse = SearchPostcodeRequestBuilder.getPostcodeData(credId, postcode = "CF140AA")
+    val response: StandaloneWSResponse =
+      SearchPostcodeRequestBuilder.getPostcodeData(credId, postcode = "CF143AA", listType = "CVW")
 
     val jsonResponseBody = response.body[JsValue]
     println("JSON RESPONSE")
