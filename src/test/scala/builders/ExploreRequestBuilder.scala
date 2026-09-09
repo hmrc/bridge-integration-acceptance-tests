@@ -24,7 +24,7 @@ object ExploreRequestBuilder extends BaseRequests {
 
   def getExploreData(credId: String): StandaloneWSResponse = {
     val bearerToken = createBearerToken(credId = credId)
-    val baseUri     = s"$bridgeIntegrationUrl/explore"
+    val baseUri     = s"$bridgeIntegrationUrl/explore/6A7D3B18-E92A-47AB-8795-82B6D1E78069/CVW"
     println(s"service level bearer token *********************************$bearerToken")
     val headers     = Map(
       "Authorization" -> s"Bearer $bearerToken",

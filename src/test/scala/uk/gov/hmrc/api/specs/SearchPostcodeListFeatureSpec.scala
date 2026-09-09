@@ -63,9 +63,9 @@ class SearchPostcodeListFeatureSpec
 
     results.page_size shouldBe Some(20)
 
-    results.total_results shouldBe Some(0)
+    results.total_results shouldBe Some(9)
 
-    results.total_pages shouldBe Some(0)
+    results.total_pages shouldBe Some(1)
 
     results.has_next shouldBe Some(false)
 
