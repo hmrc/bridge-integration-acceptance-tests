@@ -48,4 +48,11 @@ trait PropertyLinkingStepHelper { this: Matchers =>
     context.status shouldBe 200
     // actualResponseBody shouldBe Some(expectedResponse)
 
+  // TODO:
+  // Temporarily disabled.
+  // Bridge Integration currently returns:
+  // 500 {"message":"No content to map due to end-of-input"}
+  // Endpoint: POST /property-linking/{credId}/relationship-change/{assessmentId}
+  // Re-enable once bridge-integration response is fixed.
+
 }

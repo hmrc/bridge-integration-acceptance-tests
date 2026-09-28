@@ -24,28 +24,30 @@ import steps.context.{PropertyAssessmentContext, PropertyAssessmentJobContext}
 import steps.helpers.{PropertyAssessmentJobStepHelper, PropertyAssessmentStepHelper}
 
 class PropertyAssessmentJobFeatureSpec
-    extends FixtureAnyFeatureSpec
-    with GivenWhenThen
-    with Matchers
-    with PropertyAssessmentJobStepHelper {
+// TODO Currently not in use -> Bridge deployment message 21/09/2026  Bring them back when necessary
 
-  override type FixtureParam = PropertyAssessmentJobContext
-
-  override def withFixture(test: OneArgTest): Outcome = {
-    val context = PropertyAssessmentJobContext()
-    try test(context)
-    finally ()
-  }
-
-  Feature("Property Assessment Job API Test") {
-
-    Scenario("PropertyAssessmentJob Response") { context =>
-      val personForeignId  = "123456789567"
-      When(s"the get request is sent to the property assessment api job with $personForeignId")
-      propertyAssessment(context, personForeignId)
-      Then("the response should contain the following details")
-      val expectedResponse = RegisterRatepayerResponse(message = "Job successfully submitted")
-      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
-    }
-  }
-}
+//    extends FixtureAnyFeatureSpec
+//    with GivenWhenThen
+//    with Matchers
+//    with PropertyAssessmentJobStepHelper {
+//
+//  override type FixtureParam = PropertyAssessmentJobContext
+//
+//  override def withFixture(test: OneArgTest): Outcome = {
+//    val context = PropertyAssessmentJobContext()
+//    try test(context)
+//    finally ()
+//  }
+//
+//  Feature("Property Assessment Job API Test") {
+//
+//    Scenario("PropertyAssessmentJob Response") { context =>
+//      val personForeignId  = "123456789567"
+//      When(s"the get request is sent to the property assessment api job with $personForeignId")
+//      propertyAssessment(context, personForeignId)
+//      Then("the response should contain the following details")
+//      val expectedResponse = RegisterRatepayerResponse(message = "Job successfully submitted")
+//      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+//    }
+//  }
+//}
