@@ -78,7 +78,7 @@ class SearchPostcodeFeatureSpec
             Classification(
               Some("CVW"),
               Some(
-                "Council tax valuation list for a billing authority in Wales (LGFA92s22B2(b)to3A)"
+                "Council tax valuation list for a billing authority in Wales"
               )
             ),
             None,
