@@ -45,114 +45,41 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
       val expectedResponse: ExploreResult =
         ExploreResult(
           ExploreResults(
-            Seq(
+            List(
               ExploreRecord(
                 ExploreData(
                   ValuationList(
-                    Id(Some("123456789569")),
-                    Classification(
-                      Some("CVW"),
-                      Some(
-                        "Council tax valuation list for a billing authority in Wales"
-                      )
-                    ),
-                    Some(
-                      Country(
-                        Some("W92000004"),
-                        None
-                      )
-                    ),
-                    CollectionAuthority(
-                      Some("W07000064"),
-                      None
-                    ),
-                    Some(
-                      InforcementPeriod(
-                        Some("20050401"),
-                        None
-                      )
-                    ),
-                    Some(
-                      ListAdministration(
-                        Some("20260824T125609Z"),
-                        Some("20260824T125609Z"),
-                        Some("1003")
-                      )
-                    )
+                    Id(Some("123456789567")),
+                    Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+                    Some(Country(Some("W92000004"), Some("Wales"))),
+                    CollectionAuthority(Some("W07000064"), None),
+                    Some(InforcementPeriod(Some("20050401"), None)),
+                    Some(ListAdministration(Some("20261005T100000Z"), Some("20261005T100000Z"), Some("1001")))
                   ),
                   ListEntry(
-                    Some(
-                      Id(
-                        Some("123456789569")
-                      )
-                    ),
-                    Some(
-                      DesignatedPerson(
-                        Some("Designated Person 3"),
-                        Some("1 Test Street, London"),
-                        Some("COMP3")
-                      )
-                    ),
+                    Some(Id(Some("123456789567"))),
+                    Some(DesignatedPerson(None, None, None)),
                     None,
-                    Some(
-                      Use(
-                        Some("General Commercial Use"),
-                        Some("N"),
-                        Some("N")
-                      )
-                    ),
-                    Valuation(
-                      Some("D"),
-                      Some(
-                        Method(
-                          None,
-                          None
-                        )
-                      ),
-                      Some("STD")
-                    ),
-                    Some(
-                      Period(
-                        Some("20050401T000000Z"),
-                        Some("20280101T000000Z")
-                      )
-                    ),
+                    Some(Use(Some("General Commercial Use"), Some("N"), Some("N"))),
+                    Valuation(Some("E"), Some(Method(Some("W07000064"), None)), None),
+                    Some(Period(Some("20050401T000000Z"), Some("20261004T100000Z"))),
                     Some(
                       Administration(
-                        Some("20230401"),
+                        Some("20261005T100000Z"),
                         Some("1"),
                         Some("1"),
-                        None,
-                        Some("N"),
+                        Some("V"),
+                        Some("Not Transitionally"),
                         None
                       )
                     ),
-                    Some(
-                      Workflow(
-                        Some("R5R875-B52D043-F767863-66ZZZ")
-                      )
-                    ),
+                    Some(Workflow(Some("R5R875-B52D043-F767863-66ZZZ"))),
                     Some(
                       Property(
-                        Some(
-                          Id(
-                            Some("6A7D3B18-E92A-47AB-8795-82B6D1E78069")
-                          )
-                        ),
-                        None,
-                        Some(
-                          Address(
-                            Some("3, NEW GEORGE STREET, PLYMOUTH, PL1 3LY"),
-                            Some("3"),
-                            Some("PL1 3LY"),
-                            None
-                          )
-                        ),
-                        Some(
-                          PropertyWorkflow(
-                            Some("N")
-                          )
-                        )
+                        Some(Id(Some("192FDEEA-8278-4EC5-870E-19C15030D007"))),
+                        Some("273996000001"),
+                        Some(Address(Some("1, Y DERI DUON, Cardiff, CF14 0AA"), Some("1"), Some("CF14 0AA"), None)),
+                        Some(PropertyWorkflow(Some("N")))
                       )
                     )
                   )
