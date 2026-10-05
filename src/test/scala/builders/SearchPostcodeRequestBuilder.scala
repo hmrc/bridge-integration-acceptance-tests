@@ -24,7 +24,7 @@ object SearchPostcodeRequestBuilder extends BaseRequests {
 
   def getPostcodeData(credId: String, postcode: String, listType: String): StandaloneWSResponse = {
     val bearerToken = createBearerToken(credId = credId)
-    val baseUri     = s"$bridgeIntegrationUrl/postcode/$postcode/$listType"
+    val baseUri     = s"$bridgeIntegrationUrl/search?postcode=$postcode&listType=$listType"
 
     println(s"service level bearer token *********************************$bearerToken")
     val headers = Map(
