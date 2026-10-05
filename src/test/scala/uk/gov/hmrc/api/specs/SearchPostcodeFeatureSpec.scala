@@ -40,7 +40,7 @@ class SearchPostcodeFeatureSpec
 
   private def theResponseShouldContainSearchResultDetails(
     context: FixtureParam,
-    expectedRecord: Record
+    expectedRecord: List[Record]
   ): Unit = {
 
     val actualResponseBody: Option[PostcodeSearchResult] =
@@ -54,12 +54,12 @@ class SearchPostcodeFeatureSpec
 
     results.current_page  shouldBe Some(1)
     results.page_size     shouldBe Some(20)
-    results.total_results shouldBe Some(1)
+    results.total_results shouldBe Some(10)
     results.total_pages   shouldBe Some(1)
     results.has_next      shouldBe Some(false)
     results.has_previous  shouldBe Some(false)
 
-    results.records should contain(expectedRecord)
+    results.records shouldBe expectedRecord
   }
 
   Feature("Search Postcode API Test") {
@@ -71,65 +71,285 @@ class SearchPostcodeFeatureSpec
 
       Then("the response should contain the expected search result details")
 
-      val expectedRecord: Record =
-        Record(
-          ValuationList(
-            Id(Some("123456789569")),
-            Classification(
-              Some("CVW"),
-              Some(
-                "Council tax valuation list for a billing authority in Wales"
-              )
-            ),
-            None,
-            CollectionAuthority(
-              Some("W07000064"),
-              None
-            ),
-            None,
-            None
-          ),
-          ListEntry(
-            None,
-            None,
-            None,
-            Some(
-              Use(
-                Some("General Commercial Use"),
-                None,
-                None
-              )
-            ),
-            Valuation(
-              Some("D"),
+      val expectedRecord: List[Record] =
+        List(
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
               None,
               None
             ),
-            Some(
-              Period(
-                Some("20050401T000000Z"),
-                Some("20280101T000000Z")
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("E"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20261004T100000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("192FDEEA-8278-4EC5-870E-19C15030D007"))),
+                  None,
+                  Some(Address(Some("1, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
               )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
             ),
-            None,
-            None,
-            Some(
-              Property(
-                Some(
-                  Id(
-                    Some("38DA4B95-5061-4423-8024-9CAC37956E42")
-                  )
-                ),
-                None,
-                Some(
-                  Address(
-                    Some("3, Y Deri Duon, Cardiff, South Glamorgan 3AA"),
-                    None,
-                    None,
-                    None
-                  )
-                ),
-                None
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("D"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("5D9EDEED-B632-4F1A-BEC9-CF8822B1B7F4"))),
+                  None,
+                  Some(Address(Some("10, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("D"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20261004T100000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("15B87745-3FB2-40F2-9529-87965CB08D73"))),
+                  None,
+                  Some(Address(Some("2, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("E"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("2773E005-88A6-4CFF-949C-ABBC5DF52B53"))),
+                  None,
+                  Some(Address(Some("3, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("D"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("431568D2-A99C-4F11-BAAC-FAE982236CEA"))),
+                  None,
+                  Some(Address(Some("4, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("E"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("76541CD2-C419-4800-B599-2754C167499F"))),
+                  None,
+                  Some(Address(Some("5, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("D"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("6B947036-82AA-4002-9EF7-7D354B228F94"))),
+                  None,
+                  Some(Address(Some("6, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("E"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("7D4BE0C3-4898-4C88-9578-F45E41E382E1"))),
+                  None,
+                  Some(Address(Some("7, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("D"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("8C230ADA-4973-461E-8163-70D0B7A42DC8"))),
+                  None,
+                  Some(Address(Some("8, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
+              )
+            )
+          ),
+          Record(
+            ValuationList(
+              Id(Some("123456789567")),
+              Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
+              Some(Country(Some("W92000004"), Some("Wales"))),
+              CollectionAuthority(Some("W07000064"), None),
+              None,
+              None
+            ),
+            ListEntry(
+              None,
+              None,
+              None,
+              Some(Use(Some("General Commercial Use"), None, None)),
+              Valuation(Some("E"), None, None),
+              Some(Period(Some("20050401T000000Z"), Some("20280101T000000Z"))),
+              None,
+              None,
+              Some(
+                Property(
+                  Some(Id(Some("3E48242B-4AAF-4E3F-87B6-ADA771D65EFE"))),
+                  None,
+                  Some(Address(Some("9, Y DERI DUON, Cardiff, CF14 0AA"), None, None, None)),
+                  None
+                )
               )
             )
           )

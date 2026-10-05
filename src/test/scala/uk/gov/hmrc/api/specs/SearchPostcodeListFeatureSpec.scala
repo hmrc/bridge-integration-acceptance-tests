@@ -63,7 +63,7 @@ class SearchPostcodeListFeatureSpec
 
     results.page_size shouldBe Some(20)
 
-    results.total_results shouldBe Some(9)
+    results.total_results shouldBe Some(10)
 
     results.total_pages shouldBe Some(1)
 
@@ -79,12 +79,12 @@ class SearchPostcodeListFeatureSpec
 
       val personForeignId = "123456789567"
 
-      val postcode = "TF11AA"
+      val postcode = "CF140AA"
 
       val listType = "CVW"
 
       When(
-        s"the get request is sent to postcode/$postcode/$listType"
+        s"the get request is sent to search?postcode=$postcode&listType=$listType"
       )
 
       searchPostcode(
