@@ -77,7 +77,7 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
                     Some(
                       Property(
                         Some(Id(Some("192FDEEA-8278-4EC5-870E-19C15030D007"))),
-                        Some("273996000001"),
+                        None,
                         Some(Address(Some("1, Y DERI DUON, Cardiff, CF14 0AA"), Some("1"), Some("CF14 0AA"), None)),
                         Some(PropertyWorkflow(Some("N")))
                       )
