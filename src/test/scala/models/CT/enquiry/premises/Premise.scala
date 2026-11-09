@@ -19,11 +19,11 @@ package models.CT.enquiry.premises
 import play.api.libs.json.{Json, OFormat}
 
 case class Premise(
-                    unique_statutory_ref: String,
-                    text: String,
-                    statements: List[Statement],
-                    information: List[Information]
-                  )
+  unique_statutory_ref: String,
+  text: String,
+  statements: List[Statement],
+  information: List[Information]
+)
 
 object Premise {
   implicit val format: OFormat[Premise] =

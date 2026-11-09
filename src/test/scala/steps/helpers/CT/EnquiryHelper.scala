@@ -45,8 +45,8 @@ trait EnquiryHelper { this: Matchers =>
   }
 
   def theResponseShouldContainTheFollowingDetails(
-                                                   context: ResponseContext,
-                                                   expectedResponse: ResponseBody
+    context: ResponseContext,
+    expectedResponse: ResponseBody
   ): Unit = {
     val actualResponseBody: Option[ResponseBody] = context.responseBody
 

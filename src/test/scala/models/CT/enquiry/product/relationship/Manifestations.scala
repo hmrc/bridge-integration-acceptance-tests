@@ -18,12 +18,12 @@ package models.CT.enquiry.product.relationship
 
 import play.api.libs.json.{Json, OFormat}
 
-case class Manifestations (
-                            artifact_code: String,
-                            protodata_ptr: Option[String]
+case class Manifestations(
+  artifact_code: String,
+  protodata_ptr: Option[String]
 )
 
-object Manifestations{
+object Manifestations {
   implicit val format: OFormat[Manifestations] =
     Json.format[Manifestations]
 }

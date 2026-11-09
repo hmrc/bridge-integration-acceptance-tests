@@ -19,9 +19,9 @@ package models.CT.enquiry.premises
 import play.api.libs.json.{Json, OFormat}
 
 case class Information(
-                        unique_statutory_ref: String,
-                        text: String
-                      )
+  unique_statutory_ref: String,
+  text: String
+)
 
 object Information {
   implicit val format: OFormat[Information] =

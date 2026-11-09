@@ -19,10 +19,10 @@ package models.CT.enquiry.product.person
 import models.CodeMeaning
 import play.api.libs.json.{Json, OFormat}
 
-case class Person (
-                    communications: Communications,
-                    capacity:       CodeMeaning,
-                    communications_mode: Option[String]
+case class Person(
+  communications: Communications,
+  capacity: CodeMeaning,
+  communications_mode: Option[String]
 )
 
 object Person {

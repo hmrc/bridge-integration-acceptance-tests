@@ -18,13 +18,14 @@ package models.CT.enquiry
 
 import play.api.libs.json.{Json, OFormat}
 
-case class EnquiryProtoData(node: Option[String],
-                            mime_type:   String,
-                            label:       String,
-                            is_pointer:  Boolean,
-                            pointer:     String,
-                            data: Option[String]
-                           )
+case class EnquiryProtoData(
+  node: Option[String],
+  mime_type: String,
+  label: String,
+  is_pointer: Boolean,
+  pointer: String,
+  data: Option[String]
+)
 
 object EnquiryProtoData {
   implicit val format: OFormat[EnquiryProtoData] = Json.format[EnquiryProtoData]

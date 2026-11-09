@@ -19,9 +19,9 @@ package models.CT.enquiry
 import play.api.libs.json.{Json, OFormat}
 
 case class Proposition(
-                        unique_statutory_ref: String,
-                        alterations:          Seq[String]
-                      )
+  unique_statutory_ref: String,
+  alterations: Seq[String]
+)
 
 object Proposition {
   implicit val format: OFormat[Proposition] =

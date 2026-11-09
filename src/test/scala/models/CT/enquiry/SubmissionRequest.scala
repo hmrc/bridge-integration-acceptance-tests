@@ -21,13 +21,13 @@ import models.CT.enquiry.product.ProductContext
 import play.api.libs.json.{Json, OFormat}
 
 case class SubmissionRequest(
-                              submissionId:       String,
-                              submission_date: String,
-                              files:           Seq[EnquiryProtoData],
-                              product:         ProductContext,
-                              premises:        Seq[Premise],
-                              proposition:     Seq[Proposition]
-                            )
+  submissionId: String,
+  submission_date: String,
+  files: Seq[EnquiryProtoData],
+  product: ProductContext,
+  premises: Seq[Premise],
+  proposition: Seq[Proposition]
+)
 
 object SubmissionRequest {
   implicit val format: OFormat[SubmissionRequest] =

@@ -21,9 +21,9 @@ import models.CT.enquiry.product.relationship.Relationships
 import play.api.libs.json.{Json, OFormat}
 
 case class ProductContext(
-                           person :      Person,
-                           relationship: Relationships,
-                          )
+  person: Person,
+  relationship: Relationships
+)
 
 object ProductContext {
   implicit val format: OFormat[ProductContext] =

@@ -23,11 +23,7 @@ import org.scalatest.{GivenWhenThen, Outcome}
 import steps.context.ResponseContext
 import steps.helpers.CT.EnquiryHelper
 
-class EnquiryFeatureSpec
-    extends FixtureAnyFeatureSpec
-    with GivenWhenThen
-    with Matchers
-    with EnquiryHelper {
+class EnquiryFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with Matchers with EnquiryHelper {
 
   override type FixtureParam = ResponseContext
 
@@ -40,9 +36,9 @@ class EnquiryFeatureSpec
   Feature("Enquiry journey 1 test") {
 
     Scenario("Submit journey 1") { context =>
-      val personForeignId = "123456789567"
+      val personForeignId                = "123456789567"
       When(s"the get request is sent to the dashboard api with $personForeignId")
-      journey1(context, personForeignId,"24FE5D70-624C-4E86-9EAC-AD28DE7116D9", "CVW")
+      journey1(context, personForeignId, "24FE5D70-624C-4E86-9EAC-AD28DE7116D9", "CVW")
       Then("the response should contain the following details")
       val expectedResponse: ResponseBody =
         ResponseBody(message = "Job successfully submitted")

@@ -18,13 +18,12 @@ package models.CT.enquiry.product.relationship
 
 import models.CodeMeaning
 import play.api.libs.json.{Json, OFormat}
-  
-case class Relationships (
-                           manifestation: Manifestations,
-                           `type`:        CodeMeaning,
-                           `class`:       CodeMeaning
-                         )
 
+case class Relationships(
+  manifestation: Manifestations,
+  `type`: CodeMeaning,
+  `class`: CodeMeaning
+)
 
 object Relationships {
   implicit val format: OFormat[Relationships] =

@@ -19,18 +19,18 @@ package models.CT.enquiry.product.person
 import play.api.libs.json.{Json, OFormat}
 
 case class Communications(
-                           forenames:                Option[String],
-                           surname:                  Option[String],
-                           email:                    Option[String],
-                           telephone_number:         Option[String],
-                           CouncilTaxPayerFirstName: Option[String],
-                           CouncilTaxPayerLastName:  Option[String],
-                           CouncilTaxPayerEmail:     Option[String],
-                           CouncilTaxPayerNumber:    Option[String],
-                           CouncilTaxPayerContactAddress: Option[String],
-                         )
+  forenames: Option[String],
+  surname: Option[String],
+  email: Option[String],
+  telephone_number: Option[String],
+  CouncilTaxPayerFirstName: Option[String],
+  CouncilTaxPayerLastName: Option[String],
+  CouncilTaxPayerEmail: Option[String],
+  CouncilTaxPayerNumber: Option[String],
+  CouncilTaxPayerContactAddress: Option[String]
+)
 
-object Communications{
+object Communications {
   implicit val format: OFormat[Communications] =
     Json.format[Communications]
 }
