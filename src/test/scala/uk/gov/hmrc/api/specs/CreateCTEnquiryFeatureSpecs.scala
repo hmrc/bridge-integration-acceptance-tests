@@ -49,6 +49,34 @@ class CreateCTEnquiryFeatureSpecs
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
     }
 
+    Scenario("J08 CT to NDR Change for Business use POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_08)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+    Scenario("J07 NDR to CT Change for Domestic purpose POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_07)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+    Scenario("J06 Split the property into one or more property POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_06)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+
   }
 
 }

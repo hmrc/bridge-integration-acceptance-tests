@@ -22,24 +22,19 @@ object EnquiryRequest {
 
   val JOB_09 = Json.parse(
     """{
+      |"submissionId" : "12345",
+      |"submission_date" : "20261012T000000Z",
       |  "files": [
       |    {
-      |      "node": null,
+      |      "node": "test",
       |      "mime_type": "application/pdf",
       |      "label": "RYCTB Uploaded Document",
       |      "is_pointer": true,
       |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
-      |      "data": null
+      |      "data": "test"
       |    }
       |  ],
       |  "product": {
-      |    "property": {
-      |      "period": {
-      |        "effective_from_date": "20050401T000000Z",
-      |        "effective_to_date": null
-      |      },
-      |      "compilation_date": "20050401T000000Z"
-      |    },
       |    "person": {
       |      "communications": {
       |        "forenames": "Grace",
@@ -102,6 +97,261 @@ object EnquiryRequest {
       |}""".stripMargin
   )
 
+  val JOB_08 = Json.parse(
+    """{
+      |"submissionId" : "123456",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |      "data": null
+      |    },
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |      "data": null
+      |    }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "John",
+      |        "surname": "Smith",
+      |        "email": "john.smith@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J08",
+      |      "text": "{\"Question\": \"How has the use of the property changed?\", \"Answer\": \"The property is now used as a business\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"Which parts of your home are being used for business?\", \"Answer\": \"One bedroom on the first floor is used as a home office for administrative work and remote working activities. The remainder of the property is used for residential purposes.\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "I11",
+      |          "text": "{\"Question\": \"Has the address of your home changed? \", \"Answer\": \"Yes. The original property was divided into separate residential units and each unit has been allocated its own address.\"}"
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P02",
+      |      "alterations": [
+      |       "{\"Question\": \"When did all or part of your property become your home?\", \"Answer\": \"20261001T000000Z\"}"
+      |      ]
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
+  val JOB_07 = Json.parse(
+    """{
+      |"submissionId" : "1234567",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |      "data": null
+      |    },
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |      "data": null
+      |    }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "John",
+      |        "surname": "Smith",
+      |        "email": "john.smith@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J07",
+      |      "text": "{\"Question\": \"How has the use of the property changed?\", \"Answer\": \"Part or all of the property is now used as a home\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text" : "{\"Question\": \"Which parts of your property are now used as a home?\", \"Answer\": \"The ground floor and first floor of the property are used as living accommodation, including the kitchen, living room, bedrooms, and bathrooms.\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "I11",
+      |          "text": "{\"Question\": \"Has the address of your home changed? \", \"Answer\": \"Yes. The original property was divided into separate residential units and new addresses were assigned to each dwelling..\"}"      
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P02",
+      |      "alterations": [
+      |       "{\"Question\": \"When did all or part of your property become your home?\", \"Answer\": \"20261001T000000Z\"}"
+      |      ]
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
+  val JOB_06 = Json.parse(
+    """{
+      |"submissionId" : "1234567",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |      "data": null
+      |    },
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |      "data": null
+      |    }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "John",
+      |        "surname": "Smith",
+      |        "email": "john.smith@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J06",
+      |      "text": "{\"Question\": \"How has the property been split or merged?\", \"Answer\": \"The property has been split into two or more separate properties to make smaller properties\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"How has your home been split?\", \"Answer\": \"The property was converted from a single-family house into two self-contained flats. Separate kitchens, bathrooms, and living areas were created, with each flat having its own independent access.\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "I11",
+      |          "text": "{\"Question\": \"Has the address of your home changed? \", \"Answer\": \"Yes. The property address was updated following the completion of building works and has been assigned a new official address by the local authority.\"}"
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P02",
+      |      "alterations": [
+      |       "{\"Question\": \"When was the work to split your home completed?\", \"Answer\": \"20261001T000000Z\"}"
+      |      ]
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
   def get(journeyName: EnquiryJobName): JsValue =
     this.getClass
       .getMethod(journeyName.toString)
@@ -112,3 +362,6 @@ object EnquiryRequest {
 
 enum EnquiryJobName:
   case JOB_09
+  case JOB_08
+  case JOB_07
+  case JOB_06
