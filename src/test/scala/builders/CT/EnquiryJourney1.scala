@@ -24,7 +24,6 @@ import models.CT.enquiry.product.person.{Communications, Person}
 import models.CT.enquiry.product.relationship.{Manifestations, Relationships}
 import models.CT.enquiry.{EnquiryProtoData, Proposition, SubmissionRequest}
 import models.CodeMeaning
-import org.apache.pekko.http.scaladsl.model.DateTime
 import play.api.libs.json.Json
 import play.api.libs.ws.StandaloneWSResponse
 import utils.BaseRequests
@@ -72,7 +71,6 @@ object EnquiryJourney1 extends BaseRequests {
               CouncilTaxPayerNumber = None,
               CouncilTaxPayerContactAddress = Some("FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA")
             ),
-            communications_mode = None,
             capacity = CodeMeaning(
               code = Some("TXP"),
               meaning = Some("Council Tax Payer")

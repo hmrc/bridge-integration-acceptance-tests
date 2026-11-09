@@ -21,8 +21,7 @@ import play.api.libs.json.{Json, OFormat}
 
 case class Person(
   communications: Communications,
-  capacity: CodeMeaning,
-  communications_mode: Option[String]
+  capacity: CodeMeaning
 )
 
 object Person {

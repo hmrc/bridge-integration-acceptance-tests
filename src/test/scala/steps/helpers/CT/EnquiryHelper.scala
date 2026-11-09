@@ -32,26 +32,33 @@ trait EnquiryHelper { this: Matchers =>
     listEntryId: String,
     listType: String
   ): Unit = {
-    val response: StandaloneWSResponse = EnquiryJourney1.submitJourney1(
-      credId,
-      listEntryId,
-      listType
-    )
+
+    val response: StandaloneWSResponse =
+      EnquiryJourney1.submitJourney1(
+        credId,
+        listEntryId,
+        listType
+      )
+
+    println(s"Enquiry response status: ${response.status}")
+    println(s"Enquiry response body: ${response.body}")
 
     val jsonResponseBody = response.body[JsValue]
-    context.responseBody = Some(jsonResponseBody.as[ResponseBody])
+
     context.status = response.status
     context.headers = response.headers.view.mapValues(_.mkString(", ")).toMap
+
+    context.responseBody = jsonResponseBody.validate[ResponseBody].asOpt
   }
 
   def theResponseShouldContainTheFollowingDetails(
     context: ResponseContext,
     expectedResponse: ResponseBody
   ): Unit = {
-    val actualResponseBody: Option[ResponseBody] = context.responseBody
+    val actualResponseBody: Option[ResponseBody] =
+      context.responseBody
 
     context.status     shouldBe 200
     actualResponseBody shouldBe Some(expectedResponse)
   }
-
 }
