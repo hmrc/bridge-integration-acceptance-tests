@@ -39,7 +39,7 @@ class CreateCTEnquiryFeatureSpecs
 
   Feature("POST CT Enquiry API Test") {
     Scenario("J10 General Enquiry POST Enquiry") { context =>
-      val personForeignId = "123456789567"
+      val personForeignId                       = "123456789567"
       When(s"the get request is sent to the Enquiry endpoint with $personForeignId")
       createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_10)
       Then("the response should contain the following details")
@@ -126,7 +126,7 @@ class CreateCTEnquiryFeatureSpecs
     }
 
     Scenario("J01 CT Payer < 6 Months POST Enquiry") { context =>
-      val personForeignId = "123456789567"
+      val personForeignId                       = "123456789567"
       When(s"the get request is sent to the Enquiry endpoint with $personForeignId")
       createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_01)
       Then("the response should contain the following details")
