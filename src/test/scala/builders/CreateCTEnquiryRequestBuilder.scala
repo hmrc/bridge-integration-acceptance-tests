@@ -26,7 +26,7 @@ object CreateCTEnquiryRequestBuilder extends BaseRequests {
   def createCtEnquiry(credId: String, enquiryJobName: EnquiryJobName): StandaloneWSResponse = {
     val bearerToken = createBearerToken(credId = credId)
 
-    val baseUri = s"$bridgeIntegrationUrl/enquiries/6A7D3B18-E92A-47AB-8795-82B6D1E78069/CVW"
+    val baseUri = s"$bridgeIntegrationUrl/enquiries/0E9098D5-6502-4C76-8571-7FF0B9F8675B/CVW"
 
     println(s"service level bearer token ********************************* $bearerToken")
 
