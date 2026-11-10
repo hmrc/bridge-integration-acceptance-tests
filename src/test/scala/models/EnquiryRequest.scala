@@ -352,6 +352,368 @@ object EnquiryRequest {
       |}""".stripMargin
   )
 
+  val JOB_05 = Json.parse(
+    """{
+      |"submissionId" : "1234555",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |        "data": null
+      |      },
+      |      {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |        "data": null
+      |      }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "Amelia",
+      |        "surname": "Foster",
+      |        "email": "Amelia.Foster@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J05",
+      |      "text": "{\"Question\": \"How has the property been split or merged?\", \"Answer\": \"The property has been split into two or more separate properties to make smaller properties\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"How have your properties been merged?\", \"Answer\": \"Two adjoining residential properties have been merged into a single dwelling. Internal walls were removed, doorways were created between the properties, and utility services were combined to form one larger residential property\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "I11",
+      |          "text": "{\"Question\": \"Has the address of your home changed? \", \"Answer\": \"Yes. The property address was updated following the completion of building works and has been assigned a new official address by the local authority.\"}"
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P02",
+      |      "alterations": [
+      |       "{\"Question\": \"When was the work to split your home completed?\", \"Answer\": \"20261001T000000Z\"}"
+      |      ]
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
+  val JOB_04 = Json.parse(
+    """{
+      |"submissionId" : "1234555",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |        "data": null
+      |      },
+      |      {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |        "data": null
+      |      }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "Amelia",
+      |        "surname": "Foster",
+      |        "email": "Amelia.Foster@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |      "premises": [
+      |        {
+      |          "unique_statutory_ref": "J04",
+      |          "text": "{\"Question\": \"What has changed?\", \"Answer\": \"My property has been demolished, is derelict or is undergoing significant renovation and repairs and cannot be lived in\"}",
+      |          "statements": [
+      |            {
+      |              "unique_statutory_ref": "S02",
+      |              "text": "{\"Question\": \"Choose which applies to your property:?\", \"Answer\": \"My property is derelict or in a state of disrepair and cannot be lived in\"}"
+      |            },
+      |            {
+      |              "unique_statutory_ref": "S01",
+      |              "text": "{\"Question\": \"Select the reason why the property is unhabitable?\", \"Answer\": \"Other (Not Fire Damage or Flood Damage)\"}"
+      |            }
+      |          ],
+      |          "information": [
+      |            {
+      |              "unique_statutory_ref": "I06",
+      |              "text": "{\"Question\": \"When did the property become derelict or could not be lived in?\", \"Answer\": \"20250501T000000Z\"}"
+      |            },
+      |            {
+      |              "unique_statutory_ref": "I01",
+      |              "text": "{\"Question\": \"When was the property last occupied?\", \"Answer\": \"20250701T000000Z\"}"
+      |            },
+      |            {
+      |              "unique_statutory_ref": "I07",
+      |              "text": "{\"Question\": \"What do you plan to do with the property?\", \"Answer\": \"I plan to carry out the necessary repairs and improvements to make the property habitable and then use it as my main residence.\"}"
+      |            },
+      |            {
+      |              "unique_statutory_ref": "I08",
+      |              "text": "{\"Question\": \"What do you need to do to make the property habitable?\", \"Answer\": \"The property requires extensive repairs, including roof replacement, electrical rewiring, plumbing repairs, and installation of a heating system.\"}"
+      |            },
+      |            {
+      |              "unique_statutory_ref": "I09",
+      |              "text": "{\"Question\": \"Have you made an planning applications for the property?\", \"Answer\": \"Yes. Planning permission has been approved for renovation and improvement works to the property.\"}"
+      |            }
+      |          ]
+      |        }
+      |      ],
+      |      "proposition": [
+      |        {
+      |          "unique_statutory_ref": "",
+      |          "alterations": []
+      |        }
+      |      ]
+      |}""".stripMargin
+  )
+
+  val JOB_03 = Json.parse(
+    """{
+      |"submissionId" : "1234555",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |        "data": null
+      |      },
+      |      {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |        "data": null
+      |      }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "Amelia",
+      |        "surname": "Foster",
+      |        "email": "Amelia.Foster@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J03",
+      |      "text": "{\"Question\": \"Have you received a Notice of Alteration(NoA) within the last six months?\", \"Answer\": \"Yes\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"Tell us why you think the Council Tax band is wrong?\", \"Answer\": \"I have received a recent band change letter, and i think my neighbouring properties of the same size and type are in a lower Council Tax Band\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "I04",
+      |          "text": "{\"Question\": \"What date is on the Notice of Alteration?\", \"Answer\": \"20260729T000000Z\"}"
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P01",
+      |      "alterations": [
+      |        "{\"Question\": \"What do you think your property's Council Tax band should be?\", \"Answer\": \"Band C\"}"
+      |      ]
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
+  val JOB_02 = Json.parse(
+    """{
+      |"submissionId" : "1234555",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |        "data": null
+      |      },
+      |      {
+      |        "node": null,
+      |        "mime_type": "application/pdf",
+      |        "label": "RYCTB Uploaded Document",
+      |        "is_pointer": true,
+      |        "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |        "data": null
+      |      }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "Amelia",
+      |        "surname": "Foster",
+      |        "email": "Amelia.Foster@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J02",
+      |      "text": "{\"Question\": \"Have you received a Notice of Alteration(NoA) within the last six months?\", \"Answer\": \"No\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"Tell us why you think the Council Tax band is wrong?\", \"Answer\": \"Similar neighbouring properties of the same size and type are in a lower Council Tax Band\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "",
+      |          "text": ""
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P01",
+      |      "alterations": [
+      |        "{\"Question\": \"What do you think your property's Council Tax band should be?\", \"Answer\": \"Band B\"}"
+      |      ]
+      |    },
+      |    {
+      |      "unique_statutory_ref": "",
+      |      "alterations": []
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
   def get(journeyName: EnquiryJobName): JsValue =
     this.getClass
       .getMethod(journeyName.toString)
@@ -365,3 +727,7 @@ enum EnquiryJobName:
   case JOB_08
   case JOB_07
   case JOB_06
+  case JOB_05
+  case JOB_04
+  case JOB_03
+  case JOB_02

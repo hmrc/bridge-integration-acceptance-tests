@@ -77,6 +77,46 @@ class CreateCTEnquiryFeatureSpecs
       theResponseShouldContainTheFollowingDetails(context, expectedResponse)
     }
 
+    Scenario("J05 Property Merged POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_05)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+
+    Scenario("J04 Demolished / Uninhabitable POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_04)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+
+    Scenario("J04 Band Change in Last 6 Months POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_03)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+
+    Scenario("J02 6 Months & Received NOA (Yes/No) POST Enquiry") { context =>
+      val personForeignId                       = "123456789567"
+      When(s"the get request is sent to the dashboard api with $personForeignId")
+      createCTEnquiry(context, personForeignId, EnquiryJobName.JOB_02)
+      Then("the response should contain the following details")
+      val expectedResponse: PostEnquiryResponse =
+        PostEnquiryResponse(message = "Job successfully submitted")
+      theResponseShouldContainTheFollowingDetails(context, expectedResponse)
+    }
+
   }
 
 }
