@@ -20,6 +20,83 @@ import play.api.libs.json.{JsValue, Json}
 
 object EnquiryRequest {
 
+  val JOB_10 = Json.parse(
+    """{
+      |"submissionId" : "12345",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |      "node": "test",
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |      "data": "test"
+      |    }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "Grace",
+      |        "surname": "Mitchell",
+      |        "email": "Grace.Mitchell@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "J10",
+      |      "text": "{\"Question\": \"\"What has changed?\", \"Answer\": Another Reason\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"What has changed?\", \"Answer\": \"Several nearby properties have changed use, resulting in a different mix of residential and commercial activity within the area.\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "",
+      |          "text": ""
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P02",
+      |      "alterations": [
+      |         "{\"Question\": \"When did this change happen?\", \"Answer\": \"20261001T000000Z\"}"
+      |      ]
+      |    }
+      |  ]
+      |}""".stripMargin
+  )
+
   val JOB_09 = Json.parse(
     """{
       |"submissionId" : "12345",
@@ -348,6 +425,96 @@ object EnquiryRequest {
       |       "{\"Question\": \"When was the work to split your home completed?\", \"Answer\": \"20261001T000000Z\"}"
       |      ]
       |    }
+      |  ]
+      |}""".stripMargin
+  )
+  val JOB_01 = Json.parse(
+    """{
+      |"submissionId" : "1234567",
+      |"submission_date" : "20261012T000000Z",
+      |  "files": [
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/SharePoint API Documents V03 1.pdf",
+      |      "data": null
+      |    },
+      |    {
+      |      "node": null,
+      |      "mime_type": "application/pdf",
+      |      "label": "RYCTB Uploaded Document",
+      |      "is_pointer": true,
+      |      "pointer": "https://bstiazstdevfileupload.blob.core.windows.net/bridgefiles/HVCTS.pdf",
+      |      "data": null
+      |    }
+      |  ],
+      |  "product": {
+      |    "person": {
+      |      "communications": {
+      |        "forenames": "John",
+      |        "surname": "Smith",
+      |        "email": "john.smith@test.com",
+      |        "telephone_number": "07700144456",
+      |        "CouncilTaxPayerFirstName": null,
+      |        "CouncilTaxPayerLastName": null,
+      |        "CouncilTaxPayerEmail": null,
+      |        "CouncilTaxPayerNumber": null,
+      |        "CouncilTaxPayerContactPreference": "EMAIL",
+      |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
+      |      },
+      |      "capacity": {
+      |        "code": "TXP",
+      |        "meaning": "Council Tax Payer"
+      |      }
+      |    },
+      |    "relationship": {
+      |      "manifestation": {
+      |        "artifact_code": "CTB",
+      |        "protodata_ptr": "https://www.sandwell.gov.uk/council-tax/council-tax-bill-explained"
+      |      },
+      |      "type": {
+      |        "code": "LIB",
+      |        "meaning": null
+      |      },
+      |      "class": {
+      |        "code": "CRW",
+      |        "meaning": null
+      |      }
+      |    }
+      |  },
+      |  "premises": [
+      |    {
+      |      "unique_statutory_ref": "JH1",
+      |      "text": "{\"Question\": \"How long have you been responsible for paying Council Tax on the property?\", \"Answer\": \"Less than six months\"}",
+      |      "statements": [
+      |        {
+      |          "unique_statutory_ref": "S01",
+      |          "text": "{\"Question\": \"Tell us why you think the Council Tax band is wrong?\", \"Answer\": \"Similar neighbouring properties of the same size and type are in a lower Council Tax Band\"}"
+      |        }
+      |      ],
+      |      "information": [
+      |        {
+      |          "unique_statutory_ref": "",
+      |          "text": ""
+      |        }
+      |      ]
+      |    }
+      |  ],
+      |  "proposition": [
+      |    {
+      |      "unique_statutory_ref": "P01",
+      |      "alterations": [
+      |       "{\"Question\": \"What do you think your property's Council Tax band should be?\", \"Answer\": \"Band C\"}"
+      |      ]
+      |    },
+      |    {
+      |       "unique_statutory_ref": "P02",
+      |       "alterations": [
+      |        "{\"Question\": \"When did you become responsible for paying Council Tax for your home?\", \"Answer\": \"20260701T000000Z\"}"
+      |       ]
+      |     }
       |  ]
       |}""".stripMargin
   )
@@ -723,6 +890,7 @@ object EnquiryRequest {
 }
 
 enum EnquiryJobName:
+  case JOB_10
   case JOB_09
   case JOB_08
   case JOB_07
@@ -731,3 +899,4 @@ enum EnquiryJobName:
   case JOB_04
   case JOB_03
   case JOB_02
+  case JOB_01
