@@ -49,37 +49,218 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
               ExploreRecord(
                 ExploreData(
                   ValuationList(
-                    Id(Some("123456789567")),
-                    Classification(Some("CVW"), Some("Council tax valuation list for a billing authority in Wales")),
-                    Some(Country(Some("W92000004"), Some("Wales"))),
-                    CollectionAuthority(Some("W07000064"), None),
-                    Some(InforcementPeriod(Some("20050401"), None)),
-                    Some(ListAdministration(Some("20261005T100000Z"), Some("20261005T100000Z"), Some("1001")))
+                    Id(Some("1234567895657")),
+                    Classification(
+                      Some("CVW"),
+                      Some("Council tax valuation list for a billing authority in Wales")
+                    ),
+                    Some(
+                      Country(
+                        Some("W92000005"),
+                        Some("Wales")
+                      )
+                    ),
+                    CollectionAuthority(
+                      Some("W07000065"),
+                      Some("Ceredigion")
+                    ),
+                    Some(
+                      InforcementPeriod(
+                        Some("20050401T000000Z"),
+                        None
+                      )
+                    ),
+                    Some(
+                      ListAdministration(
+                        Some("20261110T135207Z"),
+                        Some("20261110T135207Z"),
+                        Some("1051")
+                      )
+                    )
                   ),
                   ListEntry(
-                    Some(Id(Some("123456789567"))),
-                    Some(DesignatedPerson(None, None, None)),
+                    Some(
+                      Id(
+                        Some("5DE7F852-11CE-4A78-99D5-530A773BA600")
+                      )
+                    ),
+                    Some(
+                      DesignatedPerson(
+                        None,
+                        None,
+                        None
+                      )
+                    ),
                     None,
-                    Some(Use(Some("General Commercial Use"), Some("N"), Some("N"))),
-                    Valuation(Some("E"), Some(Method(Some("W07000064"), None)), None),
-                    Some(Period(Some("20050401T000000Z"), Some("20261004T100000Z"))),
+                    Some(
+                      Use(
+                        Some("Domestic Use"),
+                        Some("N"),
+                        Some("N")
+                      )
+                    ),
+                    Valuation(
+                      Some("D"),
+                      Some(
+                        Method(
+                          Some("V07000032"),
+                          None
+                        )
+                      ),
+                      None
+                    ),
+                    Some(
+                      Period(
+                        Some("20050401T000000Z"),
+                        Some("20230331T235959Z")
+                      )
+                    ),
                     Some(
                       Administration(
-                        Some("20261005T100000Z"),
+                        Some("20261110T135207Z"),
                         Some("1"),
                         Some("1"),
-                        Some("V"),
+                        Some("R"),
                         Some("Not Transitionally"),
                         None
                       )
                     ),
-                    Some(Workflow(Some("R5R875-B52D043-F767863-66ZZZ"))),
+                    Some(
+                      Workflow(
+                        Some("R5R875-B52D043-F767863-66ZZZ")
+                      )
+                    ),
                     Some(
                       Property(
-                        Some(Id(Some("192FDEEA-8278-4EC5-870E-19C15030D007"))),
+                        Some(
+                          Id(
+                            Some("B60A1694-88DD-4B88-B4C1-8A871D37DB4F")
+                          )
+                        ),
+                        Some("273996000003"),
+                        Some(
+                          Address(
+                            Some("3, Apartment 125 Block B, Cardiff, CF10 1EP"),
+                            Some("3"),
+                            Some("CF10 1EP"),
+                            None
+                          )
+                        ),
+                        Some(
+                          PropertyWorkflow(
+                            Some("N")
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+              ExploreRecord(
+                ExploreData(
+                  ValuationList(
+                    Id(Some("1234567895657")),
+                    Classification(
+                      Some("CVW"),
+                      Some("Council tax valuation list for a billing authority in Wales")
+                    ),
+                    Some(
+                      Country(
+                        Some("W92000005"),
+                        Some("Wales")
+                      )
+                    ),
+                    CollectionAuthority(
+                      Some("W07000065"),
+                      Some("Ceredigion")
+                    ),
+                    Some(
+                      InforcementPeriod(
+                        Some("20050401T000000Z"),
+                        None
+                      )
+                    ),
+                    Some(
+                      ListAdministration(
+                        Some("20261110T135207Z"),
+                        Some("20261110T135207Z"),
+                        Some("1051")
+                      )
+                    )
+                  ),
+                  ListEntry(
+                    Some(
+                      Id(
+                        Some("08767223-B323-41BF-B602-58CDE343FFBE")
+                      )
+                    ),
+                    Some(
+                      DesignatedPerson(
                         None,
-                        Some(Address(Some("1, Y DERI DUON, Cardiff, CF14 0AA"), Some("1"), Some("CF14 0AA"), None)),
-                        Some(PropertyWorkflow(Some("N")))
+                        None,
+                        None
+                      )
+                    ),
+                    None,
+                    Some(
+                      Use(
+                        Some("Domestic Use"),
+                        Some("C"),
+                        Some("N")
+                      )
+                    ),
+                    Valuation(
+                      Some("E"),
+                      Some(
+                        Method(
+                          Some("V07000032"),
+                          None
+                        )
+                      ),
+                      None
+                    ),
+                    Some(
+                      Period(
+                        Some("20230401T000000Z"),
+                        None
+                      )
+                    ),
+                    Some(
+                      Administration(
+                        Some("20261110T135207Z"),
+                        Some("1"),
+                        Some("1"),
+                        Some("E"),
+                        Some("Transitionally Certified"),
+                        None
+                      )
+                    ),
+                    Some(
+                      Workflow(
+                        Some("R5R875-B52D043-F767863-66ZZZ")
+                      )
+                    ),
+                    Some(
+                      Property(
+                        Some(
+                          Id(
+                            Some("B60A1694-88DD-4B88-B4C1-8A871D37DB4F")
+                          )
+                        ),
+                        Some("273996000003"),
+                        Some(
+                          Address(
+                            Some("3, Apartment 125 Block B, Cardiff, CF10 1EP"),
+                            Some("3"),
+                            Some("CF10 1EP"),
+                            None
+                          )
+                        ),
+                        Some(
+                          PropertyWorkflow(
+                            Some("N")
+                          )
+                        )
                       )
                     )
                   )
