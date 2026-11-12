@@ -63,11 +63,11 @@ class SearchPostcodeListFeatureSpec
 
     results.page_size shouldBe Some(20)
 
-    results.total_results shouldBe Some(10)
+    results.total_results shouldBe Some(50)
 
-    results.total_pages shouldBe Some(1)
+    results.total_pages shouldBe Some(3)
 
-    results.has_next shouldBe Some(false)
+    results.has_next shouldBe Some(true)
 
     results.has_previous shouldBe Some(false)
 

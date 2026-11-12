@@ -28,7 +28,7 @@ object ExploreResult:
     Json.format[ExploreResult]
 
 case class ExploreResults(
-  records: Seq[ExploreRecord]
+  records: List[ExploreRecord]
 )
 
 object ExploreResults:
