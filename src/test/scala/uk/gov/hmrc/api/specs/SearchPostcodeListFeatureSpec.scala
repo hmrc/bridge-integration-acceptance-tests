@@ -47,7 +47,8 @@ class SearchPostcodeListFeatureSpec
   }
 
   private def theResponseShouldContainSearchResultDetails(
-    context: FixtureParam
+    context: FixtureParam,
+    expectedTotalResults: Int = 50
   ): Unit = {
 
     val actualResponseBody =
@@ -75,33 +76,147 @@ class SearchPostcodeListFeatureSpec
 
   Feature("Search Postcode By List Type API Test") {
 
-    Scenario("Search postcode by list type returns expected response") { context =>
-
+    Scenario("Bridge-BS-013: Search using Full postcode") { context =>
       val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF140AA", listType = "CVW")
 
-      val postcode = "CF140AA"
+      When(s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}")
+      searchPostcode(context, personForeignId, request)
 
-      val listType = "CVW"
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context)
+    }
+
+    Scenario("Bridge-BS-014: Search using Partial postcode") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF14", listType = "CVW")
+
+      When(s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}")
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context)
+    }
+
+    Scenario("Bridge-BS-015: Advanced Search using Full Postcode & Property Name/Number") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF140AA", listType = "CVW", propertyName = Some("1"))
 
       When(
-        s"the get request is sent to search?postcode=$postcode&listType=$listType"
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&propertyName=${request.propertyName.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 14)
+    }
+
+    Scenario("Bridge-BS-016: Advanced Search using Full Postcode & Street") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF140AA", listType = "CVW", street = Some("TY GLAS ROAD"))
+
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&street=${request.street.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 0)
+    }
+
+    Scenario("Bridge-BS-017: Advanced Search using Partial Postcode & Property Name/Number") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF14", listType = "CVW", propertyName = Some("1"))
+
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&propertyName=${request.propertyName.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 14)
+    }
+
+    Scenario("Bridge-BS-018: Advanced Search using Partial Postcode & Street") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF14", listType = "CVW", street = Some("TY GLAS ROAD"))
+
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&street=${request.street.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 0)
+    }
+
+    Scenario("Bridge-BS-019: Advanced Search using Partial Postcode & Town/City") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(postcode = "CF14", listType = "CVW", town = Some("CARDIFF"))
+
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&town=${request.town.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context)
+    }
+
+    Scenario("Bridge-BS-020: Advanced Search using Full Postcode & Full property Details") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(
+        postcode = "CF140AA",
+        listType = "CVW",
+        propertyName = Some("1"),
+        street = Some("TY GLAS ROAD"),
+        town = Some("CARDIFF")
       )
 
-      searchPostcode(
-        context,
-        personForeignId,
-        postcode,
-        listType
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&propertyName=${request.propertyName.get}&street=${request.street.get}&town=${request.town.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 0)
+    }
+
+    Scenario("Bridge-BS-021: Advanced Search using Partial Postcode & Full property Details") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(
+        postcode = "CF14",
+        listType = "CVW",
+        propertyName = Some("1"),
+        street = Some("TY GLAS ROAD"),
+        town = Some("CARDIFF")
       )
 
-      Then(
-        "the response should contain the expected search result details"
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&propertyName=${request.propertyName.get}&street=${request.street.get}&town=${request.town.get}"
+      )
+      searchPostcode(context, personForeignId, request)
+
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 0)
+    }
+
+    Scenario("Bridge-BS-022: Advanced Search using Full Postcode & any 2 property details") { context =>
+      val personForeignId = "123456789567"
+      val request         = PostcodeSearchRequest(
+        postcode = "CF140AA",
+        listType = "CVW",
+        propertyName = Some("1"),
+        town = Some("CARDIFF")
       )
 
-      theResponseShouldContainSearchResultDetails(
-        context
+      When(
+        s"the get request is sent to search?postcode=${request.postcode}&listType=${request.listType}&propertyName=${request.propertyName.get}&town=${request.town.get}"
       )
+      searchPostcode(context, personForeignId, request)
 
+      Then("the response should contain the expected search result details")
+      theResponseShouldContainSearchResultDetails(context, expectedTotalResults = 14)
     }
 
   }

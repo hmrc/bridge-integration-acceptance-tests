@@ -17,7 +17,7 @@
 package steps.helpers
 
 import builders.SearchPostcodeListRequestBuilder
-import models.search.PostcodeSearchResult
+import models.search.{PostcodeSearchRequest, PostcodeSearchResult}
 import org.scalatest.matchers.should.Matchers
 import play.api.libs.json.JsValue
 import play.api.libs.ws.JsonBodyReadables.readableAsJson
@@ -30,11 +30,13 @@ trait SearchPostcodeListStepHelper {
   def searchPostcode(
     context: SearchPostcodeListContext,
     credId: String,
-    postcode: String,
-    listType: String
+    request: PostcodeSearchRequest
   ): Unit = {
     val response: StandaloneWSResponse =
-      SearchPostcodeListRequestBuilder.getPostcodeData(credId, postcode = "CF140AA", listType)
+      SearchPostcodeListRequestBuilder.getPostcodeData(
+        credId,
+        request
+      )
 
     val jsonResponseBody = response.body[JsValue]
     context.responseBody = Some(jsonResponseBody.as[PostcodeSearchResult])
