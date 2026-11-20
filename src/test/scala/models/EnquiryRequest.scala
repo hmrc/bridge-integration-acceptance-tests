@@ -48,7 +48,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -125,7 +125,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -210,7 +210,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -295,7 +295,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -380,7 +380,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -464,7 +464,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -555,7 +555,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -640,7 +640,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -743,7 +743,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
@@ -828,7 +828,7 @@ object EnquiryRequest {
       |        "CouncilTaxPayerContactPreference": "EMAIL",
       |        "CouncilTaxPayerContactAddress": "FLAT 1, 22 ST MARY STREET, CATHAYS, CARDIFF, CF10 1AA"
       |      },
-      |      "capacity": {
+      |      "customerCapacity": {
       |        "code": "TXP",
       |        "meaning": "Council Tax Payer"
       |      }
