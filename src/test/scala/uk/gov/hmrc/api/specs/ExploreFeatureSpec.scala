@@ -94,7 +94,7 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
                     None,
                     Some(
                       Use(
-                        Some("Domestic Use"),
+                        Some("Purely domestic use properties only"),
                         Some("N"),
                         Some("N")
                       )
@@ -204,7 +204,7 @@ class ExploreFeatureSpec extends FixtureAnyFeatureSpec with GivenWhenThen with M
                     None,
                     Some(
                       Use(
-                        Some("Domestic Use"),
+                        Some("Mixed use properties only"),
                         Some("C"),
                         Some("N")
                       )

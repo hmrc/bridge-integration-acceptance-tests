@@ -103,7 +103,7 @@ class SearchPostcodeFeatureSpec
             None,
             Some(
               Use(
-                Some("Domestic Use"),
+                Some("Mixed use properties only"),
                 None,
                 None
               )
